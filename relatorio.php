@@ -31,13 +31,12 @@ $query = ibase_query($dbh, $sql);
 
                         </select>
                     </td>
-                 
                     <td>
                         <label name="lblQuestao1" id="lblVendedor">Questao1</label>
                         <select>
-                            <option value="ruim">Ruim</option>
-                            <option value="bom">Bom</option>
-                            <option value="otimo">Otimo</option>
+                            <option value="ruim">Ruim!</option>
+                            <option value="bom">Bom!</option>
+                            <option value="otimo">Otimo!</option>
                         </select>
                     </td>
                     <td>
