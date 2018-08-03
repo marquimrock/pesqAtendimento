@@ -10,10 +10,10 @@ $_SESSION["vendedor"] = "vendedor 1";
         <title></title>
     </head>
     <body>
-        <form name="frmQuestao2" method="post" action="result.php">
+        <form name="frmQuestao2" method="post" action="pagina3.php">
             <label name="lblComanda">comanda</label><br>
             <input type="text" name="comanda" value="<?php echo $_SESSION["comanda"] ?>" readonly="true"> <br>
-            <label name="lblQuestao2">Questão 2?</label><br>
+            <label name="lblQuestao2">Como você avalia o atendimento?</label><br>
             <button name="btnQuestao2" value="ruim">Ruim!</button>
             <button name="btnQuestao2" value="bom">Bom!</button>
             <button name="btnQuestao2" value="otimo">Ótimo!</button>

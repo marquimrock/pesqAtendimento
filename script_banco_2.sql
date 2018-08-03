@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Ago-2018 às 02:36
+-- Generation Time: 03-Ago-2018 às 02:58
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 5.6.33
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
--- crie um banco com nome "enquete" manualmente;
+--
 -- Database: `enquete`
 --
 
@@ -34,6 +34,7 @@ CREATE TABLE `pesquisa` (
   `vendedor` text NOT NULL,
   `questao1` text NOT NULL,
   `questao2` text NOT NULL,
+  `questao3` text NOT NULL,
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,13 +42,16 @@ CREATE TABLE `pesquisa` (
 -- Extraindo dados da tabela `pesquisa`
 --
 
-INSERT INTO `pesquisa` (`id`, `comanda`, `vendedor`, `questao1`, `questao2`, `data`) VALUES
-(17, 9898, 'vendedor 1', 'bom', 'otimo', '0000-00-00 00:00:00'),
-(21, 990099, 'vendedor 1', 'bom', 'otimo', '0000-00-00 00:00:00'),
-(22, 0, 'vendedor 1', 'otimo', 'otimo', '0000-00-00 00:00:00'),
-(23, 44444444, 'vendedor 1', 'bom', 'otimo', '0000-00-00 00:00:00'),
-(24, 8888, 'vendedor 1', 'bom', 'otimo', '0000-00-00 00:00:00'),
-(25, 99999999, 'vendedor 1', 'bom', 'ruim', '0000-00-00 00:00:00');
+INSERT INTO `pesquisa` (`id`, `comanda`, `vendedor`, `questao1`, `questao2`, `questao3`, `data`) VALUES
+(17, 9898, 'vendedor 1', 'bom', 'otimo', '', '0000-00-00 00:00:00'),
+(21, 990099, 'vendedor 1', 'bom', 'otimo', '', '0000-00-00 00:00:00'),
+(22, 0, 'vendedor 1', 'otimo', 'otimo', '', '0000-00-00 00:00:00'),
+(23, 44444444, 'vendedor 1', 'bom', 'otimo', '', '0000-00-00 00:00:00'),
+(24, 8888, 'vendedor 1', 'bom', 'otimo', '', '0000-00-00 00:00:00'),
+(25, 99999999, 'vendedor 1', 'bom', 'ruim', '', '0000-00-00 00:00:00'),
+(26, 666, 'vendedor 1', 'bom', 'bom', '', '0000-00-00 00:00:00'),
+(27, 99999, 'vendedor 1', 'bom', 'otimo', '', '0000-00-00 00:00:00'),
+(28, 77, 'vendedor 1', 'bom', 'otimo', '', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -69,7 +73,7 @@ ALTER TABLE `pesquisa`
 -- AUTO_INCREMENT for table `pesquisa`
 --
 ALTER TABLE `pesquisa`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

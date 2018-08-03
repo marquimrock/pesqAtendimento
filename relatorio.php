@@ -70,6 +70,7 @@ $query = ibase_query($dbh, $sql);
                     <th>Vendedor</th>
                     <th>Questão 1</th>
                     <th>Questão 2</th>
+                    <th>Questão 3</th>
                 </tr></thead>
             <tbody>
                 <?php
@@ -86,6 +87,7 @@ $query = ibase_query($dbh, $sql);
                         echo '<td>' . $row["vendedor"] . '</td>';
                         echo '<td>' . $row["questao1"] . '</td>';
                         echo '<td>' . $row["questao2"] . '</td>';
+                        echo '<td>' . $row["questao3"] . '</td>';
                         echo '</tr>';
                     }
                 } else {
@@ -97,7 +99,4 @@ $query = ibase_query($dbh, $sql);
         </table>
 
     </body>
-    <select>
-
-    </select>
 </html>
