@@ -2,7 +2,6 @@
 session_start();
 $_SESSION["comanda"] = $_POST['comanda'];
 $_SESSION["questao2"] = $_POST['btnQuestao2'];
-$_SESSION["vendedor"] = "vendedor 1";
 ?>
 <html>
     <head>

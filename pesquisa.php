@@ -13,6 +13,7 @@ class pesquisa {
     private $questao1;
     private $questao2;
     private $questao3;
+    private $data;
 
     function getId() {
         return $this->id;
@@ -36,6 +37,10 @@ class pesquisa {
 
     function getQuestao3() {
         return $this->questao3;
+    }
+
+    function getData() {
+        return $this->data;
     }
 
     function setId($id) {
@@ -62,7 +67,10 @@ class pesquisa {
         $this->questao3 = $questao3;
     }
 
-        
+    function setData($data) {
+        $this->data = $data;
+    }
+
     public function exibir() {
         include './conexao.php';
         $sql = "SELECT * FROM pesquisa ";
@@ -93,9 +101,10 @@ class pesquisa {
         $questao1 = $pesquisa->questao1;
         $questao2 = $pesquisa->questao2;
         $questao3 = $pesquisa->questao3;
+        $data = $pesquisa->data;
 
-        $sql = "INSERT INTO pesquisa (comanda, vendedor, questao1, questao2, questao3)"
-                . " VALUES ('$comanda', '$vendedor', '$questao1', '$questao2', '$questao3')";
+        $sql = "INSERT INTO pesquisa (comanda, vendedor, questao1, questao2, questao3, data)"
+                . " VALUES ('$comanda', '$vendedor', '$questao1', '$questao2', '$questao3', '$data')";
         if (mysqli_query($conn, $sql)) {
             //echo "Pesquisa Realizada Com Sucesso!!";
             header('Location:index.php');
@@ -104,6 +113,21 @@ class pesquisa {
         }
         mysqli_close($conn);
     }
-}?>
 
-<input type="submit" name="Inicio" value="Inicio" onClick="javascript:window.location.href='index.php'">
+}
+
+function filtraPesquisa($pesquisa) {
+    include './conexao.php';
+    
+    $sql = "SELECT * FROM pesquisa ";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each 
+        while ($row = $result->fetch_assoc()) {
+            echo $row["comanda"] ;
+        }
+    }
+}
+?>
+
+<input type="submit" name="Inicio" value="Inicio" onClick="javascript:window.location.href = 'index.php'">
