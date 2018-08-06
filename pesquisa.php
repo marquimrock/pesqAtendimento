@@ -14,6 +14,7 @@ class pesquisa {
     private $questao2;
     private $questao3;
     private $data;
+    private $time;
 
     function getId() {
         return $this->id;
@@ -41,6 +42,10 @@ class pesquisa {
 
     function getData() {
         return $this->data;
+    }
+
+    function getTime() {
+        return $this->time;
     }
 
     function setId($id) {
@@ -71,6 +76,10 @@ class pesquisa {
         $this->data = $data;
     }
 
+    function setTime($time) {
+        $this->time = $time;
+    }
+    
     public function exibir() {
         include './conexao.php';
         $sql = "SELECT * FROM pesquisa ";
@@ -102,9 +111,10 @@ class pesquisa {
         $questao2 = $pesquisa->questao2;
         $questao3 = $pesquisa->questao3;
         $data = $pesquisa->data;
+        $time = $pesquisa->time;
 
-        $sql = "INSERT INTO pesquisa (comanda, vendedor, questao1, questao2, questao3, data)"
-                . " VALUES ('$comanda', '$vendedor', '$questao1', '$questao2', '$questao3', '$data')";
+        $sql = "INSERT INTO pesquisa (comanda, vendedor, questao1, questao2, questao3, data, hora)"
+                . " VALUES ('$comanda', '$vendedor', '$questao1', '$questao2', '$questao3', '$data', '$time')";
         if (mysqli_query($conn, $sql)) {
             //echo "Pesquisa Realizada Com Sucesso!!";
             header('Location:index.php');

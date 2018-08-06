@@ -3,6 +3,10 @@ include 'conexaofirebird.php';
 //Executa a instrução SQL
 $query = ibase_query($dbh, $sql);
 $query2 = ibase_query($dbh, $sql2);
+
+date_default_timezone_set('America/Sao_Paulo');
+$dateBr = date('d-m-Y');
+$date = date('Y-m-d');
 ?>
 <html>
     <head>
@@ -62,16 +66,32 @@ $query2 = ibase_query($dbh, $sql2);
                         </select>
                     </td>
                     <td>
-                        <label name="lblDataInicial" id="lblVendedor">Data Inicial:</label>
+                        <label name="lblDataInicial" id="lbalDataInicial">Data Inicial:</label>
                         <select name="dataInicial">
+                            <option value="default">Selecione..</option>
+                            <?php echo "<option value='" . $date . "'>" . $dateBr . "</option>" ?>;
+                            <option value="data 2">Data 2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label name="lblDataFinal" id="lblDataFinal">Data Final:</label>
+                        <select name="dataFinal">
                             <option value="default">Selecione..</option>
                             <option value="data 1">Data 1</option>
                             <option value="data 2">Data 2</option>
                         </select>
                     </td>
                     <td>
-                        <label name="lblDataFinal" id="lblVendedor">Data Final:</label>
-                        <select>
+                        <label name="lblHoraInicial" id="lblHoraInicial">Hora Inicial:</label>
+                        <select name="horaInicial">
+                            <option value="default">Selecione..</option>
+                            <option value="hora 1">Data 1</option>
+                            <option value="hora 2">Data 2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label name="lblHoraFinal" id="lblHoraFinal">Hora Final:</label>
+                        <select name="horaFinal">
                             <option value="default">Selecione..</option>
                             <option value="data 1">Data 1</option>
                             <option value="data 2">Data 2</option>
@@ -89,6 +109,7 @@ $query2 = ibase_query($dbh, $sql2);
                     <th>Questão 2</th>
                     <th>Questão 3</th>
                     <th>Data</th>
+                    <th>Hora</th>
                 </tr></thead>
             <tbody>
                 <?php
@@ -115,6 +136,18 @@ $query2 = ibase_query($dbh, $sql2);
                         $questao3 = $_POST['questao3'];
                         $sql = $sql . " AND questao3 = '$questao3' ";
                     }
+                    if ($_POST['dataInicial'] !== 'null') {
+                        $dataInicial = $_POST['dataInicial'];
+                        $sql = $sql . " AND data = '$date' ";
+                    }
+                    /*
+                      if ($_POST['dataFinal'] !== 'null') {
+                      $dataFinal = $_POST['dataFinal'];
+                      $sql = $sql . " AND data = '$date' ";
+                      echo $datFinal;
+                      }
+                     * 
+                     */
 
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
@@ -127,6 +160,7 @@ $query2 = ibase_query($dbh, $sql2);
                             echo '<td>' . $row["questao2"] . '</td>';
                             echo '<td>' . $row["questao3"] . '</td>';
                             echo '<td>' . $row["data"] . '</td>';
+                            echo '<td>' . $row["hora"] . '</td>';
                             echo '</tr>';
                         }
                     } else {
@@ -138,6 +172,5 @@ $query2 = ibase_query($dbh, $sql2);
                 ?>
             </tbody>
         </table>
-
     </body>
 </html>
