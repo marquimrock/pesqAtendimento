@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <html lang="pt-BR">
     <head>

@@ -15,7 +15,6 @@ $sql = 'SELECT * FROM usuarios';
 
 $sql2 = 'SELECT * FROM vendedores';
 
-$sql2 = 'SELECT * FROM vendedores';
 
 function selectComanda($numero) {
     $servidor = '127.0.0.1:C:/Mobility_Gestao/banco/banco.FDB';

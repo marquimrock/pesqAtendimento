@@ -79,7 +79,7 @@ class pesquisa {
     function setTime($time) {
         $this->time = $time;
     }
-    
+
     public function exibir() {
         include './conexao.php';
         $sql = "SELECT * FROM pesquisa ";
@@ -128,13 +128,13 @@ class pesquisa {
 
 function filtraPesquisa($pesquisa) {
     include './conexao.php';
-    
+
     $sql = "SELECT * FROM pesquisa ";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output data of each 
         while ($row = $result->fetch_assoc()) {
-            echo $row["comanda"] ;
+            echo $row["comanda"];
         }
     }
 }

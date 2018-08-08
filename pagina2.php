@@ -1,12 +1,18 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> d44f31438ceeb71288d5f1ded294351ac666d5b1
 include './conexaoFirebird.php';
 
 session_start();
 $_SESSION["comanda"] = $_POST['comanda'];
 $_SESSION["questao1"] = $_POST['btnQuestao1'];
 $_SESSION["vendedor"] = selectComanda($_POST['comanda']);
+<<<<<<< HEAD
 
+=======
+>>>>>>> d44f31438ceeb71288d5f1ded294351ac666d5b1
 ?>
 <html lang="pt-BR">
     <head>

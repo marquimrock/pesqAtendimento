@@ -1,6 +1,5 @@
 <?php
 include 'conexaofirebird.php';
-//Executa a instrução SQL
 $query = ibase_query($dbh, $sql);
 $query2 = ibase_query($dbh, $sql2);
 
