@@ -1,5 +1,5 @@
 <?php
-include 'conexaofirebird.php';
+include './conexaoFirebird.php';
 $query = ibase_query($dbh, $sql);
 $query2 = ibase_query($dbh, $sql2);
 
@@ -24,6 +24,7 @@ $date = date('Y-m-d');
         </style>
     </head>
     <body>
+        <div class="container-fluid" style="background-color: #FFFFCC;">
         <form name="frmRel" method="post" action="relatorio.php">
             <table width="100%">
                 <tr>
@@ -102,79 +103,89 @@ $date = date('Y-m-d');
                     </td>
                 </tr>
             </table>
-            <button type="submit" value="pesquisar">Pesquisar</button>
+            <br>
+
+            <!-- PESQUISAR -->
+            <button type="submit" class="btn btn-default" value="pesquisar">Pesquisar</button><br>
+
         </form>
-        <table  class="mytab" width="100%">
-            <thead><tr>
-                    <th>Comanda</th>
-                    <th>Vendedor</th>
-                    <th>Questão 1</th>
-                    <th>Questão 2</th>
-                    <th>Questão 3</th>
-                    <th>Data</th>
-                    <th>Hora</th>
-                </tr></thead>
-            <tbody>
-                <?php
-                include 'pesquisa.php';
-                include 'conexao.php';
+        </div>
 
-                echo '<tbody>';
+        <div class="container-fluid">
+            <table  class="table table-striped" width="100%">
+                <thead>
+                    <tr>
+                        <td align="center"><b>Comanda</b></th>
+                        <td align="center"><b>Vendedor(a)</b></th>
+                        <td align="center"><b>Questão 2</b></th>
+                        <td align="center"><b>Questão 1</b></th>
+                        <td align="center"><b>Questão 3</b></th>
+                        <td align="center"><b>Data</b></th>
+                        <td align="center"><b>Hora</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include 'pesquisa.php';
+                    include 'conexao.php';
 
-                if (isset($_POST['vendedor'])) {
-                    $sql = "SELECT * FROM pesquisa WHERE '1' = '1' ";
-                    if ($_POST['vendedor'] !== 'null') {
-                        $vendedor = $_POST['vendedor'];
-                        $sql = $sql . " AND vendedor = '$vendedor' ";
-                    }
-                    if ($_POST['questao1'] !== 'null') {
-                        $questao1 = $_POST['questao1'];
-                        $sql = $sql . " AND questao1 = '$questao1' ";
-                    }
-                    if ($_POST['questao2'] !== 'null') {
-                        $questao2 = $_POST['questao2'];
-                        $sql = $sql . " AND questao2 = '$questao2' ";
-                    }
-                    if ($_POST['questao3'] !== 'null') {
-                        $questao3 = $_POST['questao3'];
-                        $sql = $sql . " AND questao3 = '$questao3' ";
-                    }
-                    if ($_POST['dataInicial'] !== 'null') {
-                        $dataInicial = $_POST['dataInicial'];
-                        $sql = $sql . " AND data = '$date' ";
-                    }
-                    /*
-                      if ($_POST['dataFinal'] !== 'null') {
-                      $dataFinal = $_POST['dataFinal'];
-                      $sql = $sql . " AND data = '$date' ";
-                      echo $datFinal;
-                      }
-                     *
-                     */
+                    echo '<tbody>';
 
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        // output data of each
-                        while ($row = $result->fetch_assoc()) {
-                            echo '<tr>';
-                            echo '<td>' . $row["comanda"] . '</td>';
-                            echo '<td>' . $row["vendedor"] . '</td>';
-                            echo '<td>' . $row["questao1"] . '</td>';
-                            echo '<td>' . $row["questao2"] . '</td>';
-                            echo '<td>' . $row["questao3"] . '</td>';
-                            echo '<td>' . $row["data"] . '</td>';
-                            echo '<td>' . $row["hora"] . '</td>';
-                            echo '</tr>';
+                    if (isset($_POST['vendedor'])) {
+                        $sql = "SELECT * FROM pesquisa WHERE '1' = '1' ";
+                        if ($_POST['vendedor'] !== 'null') {
+                            $vendedor = $_POST['vendedor'];
+                            $sql = $sql . " AND vendedor = '$vendedor' ";
                         }
-                    } else {
-                        echo "0 results";
-                    }
-                }
+                        if ($_POST['questao1'] !== 'null') {
+                            $questao1 = $_POST['questao1'];
+                            $sql = $sql . " AND questao1 = '$questao1' ";
+                        }
+                        if ($_POST['questao2'] !== 'null') {
+                            $questao2 = $_POST['questao2'];
+                            $sql = $sql . " AND questao2 = '$questao2' ";
+                        }
+                        if ($_POST['questao3'] !== 'null') {
+                            $questao3 = $_POST['questao3'];
+                            $sql = $sql . " AND questao3 = '$questao3' ";
+                        }
+                        if ($_POST['dataInicial'] !== 'null') {
+                            $dataInicial = $_POST['dataInicial'];
+                            $sql = $sql . " AND data = '$date' ";
+                        }
+                        /*
+                          if ($_POST['dataFinal'] !== 'null') {
+                          $dataFinal = $_POST['dataFinal'];
+                          $sql = $sql . " AND data = '$date' ";
+                          echo $datFinal;
+                          }
+                         *
+                         */
 
-                $conn->close();
-                ?>
-            </tbody>
-        </table>
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            // output data of each
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<tr>';
+                                echo '<td align="center">' . $row["comanda"] . '</td>';
+                                echo '<td align="center">' . $row["vendedor"] . '</td>';
+                                echo '<td align="center">' . $row["questao1"] . '</td>';
+                                echo '<td align="center">' . $row["questao2"] . '</td>';
+                                echo '<td align="center">' . $row["questao3"] . '</td>';
+                                echo '<td align="center">' . $row["data"] . '</td>';
+                                echo '<td align="center">' . $row["hora"] . '</td>';
+                                echo '</tr>';
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                    }
+
+                    $conn->close();
+                    ?>
+                </tbody>
+            </table>
+        </div>
         <script src="assets/js/jquery-3.3.1.js"/>
         <script src="assets/js/bootstrap.js"/>
     </body>
