@@ -116,8 +116,7 @@ class pesquisa {
         $sql = "INSERT INTO pesquisa (comanda, vendedor, questao1, questao2, questao3, data, hora)"
                 . " VALUES ('$comanda', '$vendedor', '$questao1', '$questao2', '$questao3', '$data', '$time')";
         if (mysqli_query($conn, $sql)) {
-            //echo "Pesquisa Realizada Com Sucesso!!";
-            header('Location:index.php');
+            header('Location:mensagem.php');
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
