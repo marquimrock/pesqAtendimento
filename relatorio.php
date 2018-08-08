@@ -8,16 +8,20 @@ date_default_timezone_set('America/Sao_Paulo');
 $dateBr = date('d-m-Y');
 $date = date('Y-m-d');
 ?>
-<html>
+<html  lang="pt-BR">
     <head>
+        <meta charset="UTF-8">
+        <!-- shrink-to-fit=no define se a pagina deve aplicar zoom na tela. Está com layout estatico -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Relátorio</title>
+        <link rel="stylesheet" href="assets/css/bootstrap.css"/>
         <style type="text/css">
             .mytab tr:nth-child(odd) {
                 background-color:#fff;
-            }  
+            }
             .mytab tr:nth-child(even) {
                 background-color:#ccc;
-            } 
+            }
         </style>
     </head>
     <body>
@@ -146,12 +150,12 @@ $date = date('Y-m-d');
                       $sql = $sql . " AND data = '$date' ";
                       echo $datFinal;
                       }
-                     * 
+                     *
                      */
 
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
-                        // output data of each 
+                        // output data of each
                         while ($row = $result->fetch_assoc()) {
                             echo '<tr>';
                             echo '<td>' . $row["comanda"] . '</td>';
@@ -172,5 +176,7 @@ $date = date('Y-m-d');
                 ?>
             </tbody>
         </table>
+        <script src="assets/js/jquery-3.3.1.js"/>
+        <script src="assets/js/bootstrap.js"/>
     </body>
 </html>
