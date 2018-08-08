@@ -1,15 +1,9 @@
 <?php
-<<<<<<< HEAD
 
 session_start();
 $_SESSION["comanda"] = $_POST['comanda'];
 $_SESSION["questao2"] = $_POST['btnQuestao2'];
 
-=======
-session_start();
-$_SESSION["comanda"] = $_POST['comanda'];
-$_SESSION["questao2"] = $_POST['btnQuestao2'];
->>>>>>> d44f31438ceeb71288d5f1ded294351ac666d5b1
 ?>
 <html lang="pt-BR">
     <head>
@@ -28,10 +22,6 @@ $_SESSION["questao2"] = $_POST['btnQuestao2'];
                 <button name="btnQuestao3" type="submit" class="btn btn-danger" value="ruim"><b>Ruim!</b></button>
                 <button name="btnQuestao3" type="submit" class="btn btn-warning" value="bom"><b>Bom!</b></button>
                 <button name="btnQuestao3" type="submit" class="btn btn-success" value="otimo"><b>Ótimo!</b></button>
-<<<<<<< HEAD
-
-=======
->>>>>>> d44f31438ceeb71288d5f1ded294351ac666d5b1
             </form>
         </div>
         <script src="assets/js/jquery-3.3.1.js"/>
