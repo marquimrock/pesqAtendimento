@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <html lang="pt-BR">
     <head>
@@ -17,9 +16,9 @@ session_start();
                 <label name="lblComanda"><h2><b>Comanda</b></h2></label><br>
                 <input type="text" class="form-control" name="comanda" id="comanda"><br><br>
                 <label name="lblQuestao1"><h4>1/3. Como você avalia o tempo de espera do atendimento?</h4></label><br>
-                <button name="btnQuestao1" type="button" class="btn btn-danger" value="ruim"><b>Ruim!</b></button>
-                <button name="btnQuestao1" type="button" class="btn btn-warning" value="bom"><b>Bom!</b></button>
-                <button name="btnQuestao1" type="button" class="btn btn-success" value="otimo"><b>Ótimo!</b></button>
+                <button name="btnQuestao1" type="submit" class="btn btn-danger" value="ruim"><b>Ruim!</b></button>
+                <button name="btnQuestao1" type="submit" class="btn btn-warning" value="bom"><b>Bom!</b></button>
+                <button name="btnQuestao1" type="submit" class="btn btn-success" value="otimo"><b>Ótimo!</b></button>
             </form>
             <input type="submit" name="Proximo" type="button" class="btn" value="Relatorio" onClick="javascript:window.location.href = 'relatorio.php'">
         </div>
