@@ -24,7 +24,7 @@ $_SESSION["questao2"] = $_POST['btnQuestao2'];
                 <button name="btnQuestao3" type="submit" class="btn btn-success" value="otimo"><b>Ótimo!</b></button>
             </form>
         </div>
-        <script src="assets/js/jquery-3.3.1.js"/>
-        <script src="assets/js/bootstrap.js"/>
+        <script src="assets/js/jquery-3.3.1.js"></script>
+        <script src="assets/js/bootstrap.js"></script>
     </body>
 </html>

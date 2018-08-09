@@ -69,6 +69,8 @@ $date = date('Y-m-d');
                             <option value="otimo">Otimo</option>
                         </select>
                     </td>
+
+
                     <td>
                         <label name="lblDataInicial" id="lbalDataInicial">Data Inicial:</label>
                         <select name="dataInicial">
@@ -77,6 +79,8 @@ $date = date('Y-m-d');
                             <option value="data 2">Data 2</option>
                         </select>
                     </td>
+
+
                     <td>
                         <label name="lblDataFinal" id="lblDataFinal">Data Final:</label>
                         <select name="dataFinal">
@@ -186,7 +190,7 @@ $date = date('Y-m-d');
                 </tbody>
             </table>
         </div>
-        <script src="assets/js/jquery-3.3.1.js"/>
-        <script src="assets/js/bootstrap.js"/>
+        <script src="assets/js/jquery-3.3.1.js"></script>
+        <script src="assets/js/bootstrap.js"></script>
     </body>
 </html>

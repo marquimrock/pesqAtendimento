@@ -17,7 +17,7 @@ header("refresh: 5;index.php");
                 <label name="lblComanda"><h2><b>Volte Sempre!!</b></h2></label><br>
             </form>
         </div>
-        <script src="assets/js/jquery-3.3.1.js"/>
-        <script src="assets/js/bootstrap.js"/>
+        <script src="assets/js/jquery-3.3.1.js"></script>
+        <script src="assets/js/bootstrap.js"></script>
     </body>
 </html>
