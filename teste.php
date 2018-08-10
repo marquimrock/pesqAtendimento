@@ -3,10 +3,13 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Calendário jQuery</title> 
+        <title>Calendário jQuery</title>
+        <link rel="stylesheet" href="assets/css/bootstrap.css"/>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+
         <script>
             $(function () {
                 $("#calendario").datepicker({
@@ -19,22 +22,15 @@
                 });
             });
         </script>
-        <style>
-            body{
-                background-color: red;
-            }
 
-        </style>
     </head>
     <body >
-        <form method="post" action="teste.php" name="calendario">
-              
+
+        <form method="post" action="relatorio.php" name="calendario">
             <p>Data: <input type="text" id="calendario" name="calendario"/></p>
-        <?php 
-        echo $_POST['calendario'];
-        
-        ?>  
-        <input type="submit" value="gravar">
         </form>
+
+
+
     </body>
 </html>

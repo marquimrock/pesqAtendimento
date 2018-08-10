@@ -88,11 +88,11 @@ class pesquisa {
           . "comanda = '' "
           . "AND vendedor = ''"
           . "status = '' ";
-         * 
+         *
          */
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
-            // output data of each 
+            // output data of each
             while ($row = $result->fetch_assoc()) {
                 echo $row["id"] . "<br>";
             }
@@ -131,12 +131,10 @@ function filtraPesquisa($pesquisa) {
     $sql = "SELECT * FROM pesquisa ";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-        // output data of each 
+        // output data of each
         while ($row = $result->fetch_assoc()) {
             echo $row["comanda"];
         }
     }
 }
 ?>
-
-<input type="submit" name="Inicio" value="Inicio" onClick="javascript:window.location.href = 'index.php'">
