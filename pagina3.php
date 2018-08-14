@@ -13,16 +13,21 @@ $_SESSION["questao2"] = $_POST['btnQuestao2'];
         <link rel="stylesheet" href="assets/css/bootstrap.css"/>
     </head>
     <body>
-        <div class="container-fluid" style="background-color: #FFFFCC;" align="center">
-            <img src="logo.png" width="255" height="187">
-            <form class="form-inline" name="frmQuestao3" method="post" action="result.php">
-                <label name="lblComanda"><h2><b>Comanda</b></h2></label><br>
-                <input type="text" class="form-control" name="comanda" value="<?php echo $_SESSION["comanda"] ?>" readonly="true"> <br><br>
-                <label name="lblQuestao3"><h4>3/3. Como você avalia a qualidade das refeições?</h4></label><br>
-                <button name="btnQuestao3" type="submit" class="btn btn-danger" value="ruim"><b>Ruim!</b></button>
-                <button name="btnQuestao3" type="submit" class="btn btn-warning" value="bom"><b>Bom!</b></button>
-                <button name="btnQuestao3" type="submit" class="btn btn-success" value="otimo"><b>Ótimo!</b></button>
-            </form>
+
+        <div class="container-fluid" align="center"><br>
+          <div class="panel panel-default" style="background-color: #FFFFCC;" >
+              <div class="panel-body">
+                  <img src="logo.png" width="255" height="187">
+                  <form class="form-inline" name="frmQuestao3" method="post" action="result.php">
+                      <label name="lblComanda"><h2><b>Comanda</b></h2></label><br>
+                      <input type="text" class="form-control" name="comanda" value="<?php echo $_SESSION["comanda"] ?>" readonly="true"> <br><br>
+                      <label name="lblQuestao3"><h4>3/3. Como você avalia a qualidade das refeições?</h4></label><br>
+                      <button name="btnQuestao3" type="submit" class="btn btn-danger" value="ruim"><b>Ruim!</b></button>
+                      <button name="btnQuestao3" type="submit" class="btn btn-warning" value="bom"><b>Bom!</b></button>
+                      <button name="btnQuestao3" type="submit" class="btn btn-success" value="otimo"><b>Ótimo!</b></button>
+                  </form>
+                </div>
+            </div>
         </div>
         <script src="assets/js/jquery-3.3.1.js"></script>
         <script src="assets/js/bootstrap.js"></script>

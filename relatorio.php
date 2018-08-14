@@ -115,19 +115,15 @@ $date = date('Y-m-d');
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label name="lblHoraInicial" id="lblHoraInicial">Hora Inicial:</label>
-                                            <select name="horaInicial" class="form-control">
-                                                <option value="default">Selecione..</option>
-                                                <option value="hora 1">Data 1</option>
-                                                <option value="hora 2">Data 2</option>
-                                            </select>
+                                            <form class="form-inline" method="post">
+                                                <input type="time" class="form-control">
+                                            </form>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label name="lblHoraFinal" id="lblHoraFinal">Hora Final:</label>
-                                            <select name="horaFinal" class="form-control">
-                                                <option value="default">Selecione..</option>
-                                                <option value="data 1">Data 1</option>
-                                                <option value="data 2">Data 2</option>
-                                            </select>
+                                            <form class="form-inline" method="post">
+                                                <input type="time" class="form-control">
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
