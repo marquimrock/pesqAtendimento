@@ -15,6 +15,7 @@ $date = date('Y-m-d');
         <title>Relátorios</title>
         <link rel="stylesheet" href="assets/css/bootstrap.css"/>
         <link rel="stylesheet" href="assets/css/estilo.css"/>
+        <!-- <link rel="stylesheet" href="assets/css/estilo.css"/> -->
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
@@ -48,13 +49,15 @@ $date = date('Y-m-d');
             <br>
 
             <div class="container-fluid">
-                <div class="well well-sm" align="center" >
+                <img src="logo.png" width="118" height="67" align="left">
+                <div class="well well-md" align="center" >
                     <b><i><font color="#880000">RELATÓRIO DE SATISFAÇÃO DO CLIENTE</font></i></b>
                 </div>
+
                 <div class="row content">
                     <div class="col-sm-12 text-left">
                         <div class="panel panel-default">
-                            <div class="panel-body">
+                            <div class="panel-body" >
                                 <!-- PRIMEIRA LINHA FF9966-->
                                 <div class="form-group col-md-12">
                                     <div class="form-row">
@@ -136,7 +139,9 @@ $date = date('Y-m-d');
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <!-- PESQUISAR -->
-                                            <button type="submit" class="btn btn-warning" value="pesquisar">Pesquisar</button>
+                                            <button type="submit" class="btn btn-default" value="pesquisar" style="border-color: #FFCC99; background-color: #FFFFCC;">
+                                              <font color="orange"><b><i>Pesquisar</i></b></font>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -153,15 +158,15 @@ $date = date('Y-m-d');
                   <div class="panel panel-default">
                       <div class="panel-body">
                           <table  class="table table-striped" width="100%">
-                              <thead><!-- FF9933 -->
+                              <thead><!-- style="background-color: #FFFF99" -->
                                   <tr style="background-color: #FFFF99">
-                                      <td align="center"><b>Comanda</b></th>
-                                      <td align="center"><b>Vendedor(a)</b></th>
-                                      <td align="center"><b>Questão 2</b></th>
-                                      <td align="center"><b>Questão 1</b></th>
-                                      <td align="center"><b>Questão 3</b></th>
-                                      <td align="center"><b>Data</b></th>
-                                      <td align="center"><b>Hora</b></th></div>
+                                      <td align="center"><b><font color="#880000">Comanda</font></b></th>
+                                      <td align="center"><b><font color="#880000">Vendedor(a)</font></b></th>
+                                      <td align="center"><b><font color="#880000">Questão 2</font></b></th>
+                                      <td align="center"><b><font color="#880000">Questão 1</font></b></th>
+                                      <td align="center"><b><font color="#880000">Questão 3</font></b></th>
+                                      <td align="center"><b><font color="#880000">Data</font></b></th>
+                                      <td align="center"><b><font color="#880000">Hora</font></b></th></div>
                                   </tr>
                               </thead>
                               <tbody>

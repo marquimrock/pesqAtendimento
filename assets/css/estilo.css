@@ -5,3 +5,9 @@ div.well {
 div.panel {
   border-color: #FFCC00;
 }
+select.form-control {
+  border-color: #FFCC99;
+}
+input.form-control {
+  border-color: #FFCC99;
+}
