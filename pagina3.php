@@ -11,6 +11,11 @@ $_SESSION["questao2"] = $_POST['btnQuestao2'];
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Pesquisa de Satisfação do Cliente</title>
         <link rel="stylesheet" href="assets/css/bootstrap.css"/>
+        <style>
+            div.panel {
+              border-color: #FFCC00;
+            }
+        </style>
     </head>
     <body>
 

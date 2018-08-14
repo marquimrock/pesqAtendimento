@@ -25,6 +25,11 @@ session_start();
                 }
             }
         </script>
+        <style>
+            div.panel {
+              border-color: #FFCC00;
+            }
+        </style>
     </head>
     <body>
 

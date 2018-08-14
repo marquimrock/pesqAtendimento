@@ -41,15 +41,28 @@ $date = date('Y-m-d');
                 });
             });
         </script>
+
+        <style>
+            div.well {
+               background-color: #FFFF99;
+               border-color: #FFCC00;
+               }
+            div.panel {
+              border-color: #FFCC00;
+            }
+        </style>
     </head>
     <body>
         <form name="frmRel" method="post" action="relatorio.php">
             <br>
+
             <div class="container-fluid">
+                <div class="well well-sm" align="center" >
+                    <b><i><font color="#880000">RELATÓRIO DE SATISFAÇÃO DO CLIENTE</font></i></b>
+                </div>
                 <div class="row content">
                     <div class="col-sm-12 text-left">
                         <div class="panel panel-default">
-                            <div class="panel-heading" align="center" style="background-color: #CCC"><b>RELATÓRIO DE SATISFAÇÃO DO CLIENTE</b></div>
                             <div class="panel-body">
                                 <!-- PRIMEIRA LINHA FF9966-->
                                 <div class="form-group col-md-12">
@@ -116,13 +129,13 @@ $date = date('Y-m-d');
                                         <div class="form-group col-md-2">
                                             <label name="lblHoraInicial" id="lblHoraInicial">Hora Inicial:</label>
                                             <form class="form-inline" method="post">
-                                                <input type="time" class="form-control">
+                                                <input type="time" class="form-control" style="width: 167px">
                                             </form>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label name="lblHoraFinal" id="lblHoraFinal">Hora Final:</label>
                                             <form class="form-inline" method="post">
-                                                <input type="time" class="form-control">
+                                                <input type="time" class="form-control" style="width: 167px">
                                             </form>
                                         </div>
                                     </div>
@@ -132,7 +145,7 @@ $date = date('Y-m-d');
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <!-- PESQUISAR -->
-                                            <button type="submit" class="btn btn" value="pesquisar">Pesquisar</button>
+                                            <button type="submit" class="btn btn-warning" value="pesquisar">Pesquisar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -149,8 +162,8 @@ $date = date('Y-m-d');
                   <div class="panel panel-default">
                       <div class="panel-body">
                           <table  class="table table-striped" width="100%">
-                              <thead>
-                                  <tr style="background-color: #CCC">
+                              <thead><!-- FF9933 -->
+                                  <tr style="background-color: #FFFF99">
                                       <td align="center"><b>Comanda</b></th>
                                       <td align="center"><b>Vendedor(a)</b></th>
                                       <td align="center"><b>Questão 2</b></th>
