@@ -8,6 +8,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Pesquisa de Satisfação do Cliente</title>
         <link rel="stylesheet" href="assets/css/bootstrap.css"/>
+        <link rel="stylesheet" href="assets/css/estilo.css"/>
         <script>
             function somenteNumeros(num) {
                 var er = /[^0-9.]/;
@@ -25,11 +26,6 @@ session_start();
                 }
             }
         </script>
-        <style>
-            div.panel {
-              border-color: #FFCC00;
-            }
-        </style>
     </head>
     <body>
 

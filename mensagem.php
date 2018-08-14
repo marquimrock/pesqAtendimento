@@ -8,11 +8,7 @@ header("refresh: 5;index.php");
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Pesquisa de Satisfação do Cliente</title>
         <link rel="stylesheet" href="assets/css/bootstrap.css"/>
-        <style>
-            div.panel {
-              border-color: #FFCC00;
-            }
-        </style>
+        <link rel="stylesheet" href="assets/css/estilo.css"/>
     </head>
     <body>
         <div class="container-fluid" align="center"><br>

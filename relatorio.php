@@ -14,6 +14,7 @@ $date = date('Y-m-d');
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Relátorios</title>
         <link rel="stylesheet" href="assets/css/bootstrap.css"/>
+        <link rel="stylesheet" href="assets/css/estilo.css"/>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
@@ -41,16 +42,6 @@ $date = date('Y-m-d');
                 });
             });
         </script>
-
-        <style>
-            div.well {
-               background-color: #FFFF99;
-               border-color: #FFCC00;
-               }
-            div.panel {
-              border-color: #FFCC00;
-            }
-        </style>
     </head>
     <body>
         <form name="frmRel" method="post" action="relatorio.php">
