@@ -45,10 +45,6 @@ session_start();
             }
             function tecla_pressionada(x) {
             var tecla = x.which;
-            if (tecla == 49){
-            alert("ruim");
-            document.frmQuestao1.submit();
-            }
             if (tecla == 50){
             alert("bom");
             }
@@ -70,12 +66,11 @@ session_start();
                             enableDiv();
                             }" onkeyup="somenteNumeros(this);" maxlength="8" autofocus="true"><br>
 
-                        <input type="text" id="btnHidden"  name="btnHidden"  maxlength="1">
                         <label name="lblQuestao1"><h4>1/3. Como você avalia o tempo de espera do atendimento?</h4></label><br>
                         <div id="botoes" onkeydown="tecla_pressionada(event)">
-                            <button name="btnQuestao1" id="btnQuestao1" type="submit" class="btn btn-danger" value="ruim" onkeypress=" if (event.key == 49) { this.form.submit(); }"><b>Ruim!</b></button>
-                            <button name="btnQuestao1" id="btnQuestao2" type="submit" class="btn btn-warning" value="bom" onkeypress=" if (event.key == 50) { this.form.submit(); }"><b>Bom!</b></button>
-                            <button name="btnQuestao1" id="btnQuestao2" type="submit" class="btn btn-success" value="otimo" onkeypress=" if (event.key == 51) { this.form.submit();"}><b>Ótimo!</b></button>
+                            <button name="btnQuestao1" id="btn1" type="submit" class="btn btn-danger" value="ruim" onkeypress="this.form.submit();"><b>Ruim!</b></button>
+                            <button name="btnQuestao1" id="btn2" type="submit" class="btn btn-warning" value="bom" onkeypress=" if (event.key == 50) { this.form.submit(); }"><b>Bom!</b></button>
+                            <button name="btnQuestao1" id="bnt3" type="submit" class="btn btn-success" value="otimo" onkeypress=" if (event.key == 51) { this.form.submit();"}><b>Ótimo!</b></button>
                     </form>
                 </div>
             </div>
