@@ -4,8 +4,9 @@ include './conexaoFirebird.php';
 
 session_start();
 $_SESSION["comanda"] = $_POST['comanda'];
-echo $_POST['btn1'];
-$_SESSION["questao1"] = $_POST['btnQuestao1'];
+$_SESSION["questao1"] = $_POST['btn2'];
+//echo $_POST['comanda'];
+var_dump($_SESSION);
 $_SESSION["vendedor"] = selectComanda($_POST['comanda']);
 
 ?>

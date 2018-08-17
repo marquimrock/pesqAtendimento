@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION["comanda"] = $_POST['comanda'];
 ?>
 <html lang="pt-BR">
     <head>
@@ -17,44 +18,23 @@ session_start();
 
 
         <script>
-            function somenteNumeros(num) {
-                var er = /[^0-9.]/;
-                er.lastIndex = 0;
-                var campo = num;
-                if (er.test(campo.value)) {
-                    campo.value = "";
-                }
-            }
-            function valida_form() {
-                if (document.getElementById("comanda").value.length < 8) {
-                    alert('Por favor, digite o numero da comanda com 8 dígitos!');
-                    focus.comanda;
-                    return false;
-                } else {
-                    document.frmQuestao1.submit();                
-            }
-            }
-            function enableDiv() {
-                
-                document.getElementById("frmQuestao1").submit();
-            }
-            function disableDiv() {
-                document.getElementById("btnQuestao1").disabled = true;
-                document.getElementById("btnQuestao2").disabled = true;
-                document.getElementById("btnQuestao3").disabled = true;
-            }
             function tecla_pressionada(x) {
-                var tecla = x.which;
+                var tecla = x.keyCode;
                 if (tecla == 49) {
                     alert("ruim");
-                    document.getElementById("frmQuestao1").submit();
+                    var teste = document.getElementById("btn2").getAttribute(id);
+                    alert (teste);
+                    
                 }
                 if (tecla == 50) {
-                    alert("bom");
+                    document.getElementById("btn2").focus();
+                    document.getElementById("frmQuestao1").submit();
+                    
                 }
                 if (tecla == 51) {
-                    alert("otimo");
+                    alert("otimo").value();
                 }
+                this.form.submit();
                 return tecla;
             }
         </script>
@@ -63,13 +43,16 @@ session_start();
         <div class="container-fluid" align="center"><br>
             <div class="panel panel-default" style="background-color: #FFFFCC;" >
                 <div class="panel-body">
-                    <form id="frmQuestao1" class="form-inline" name="frmQuestao1" method="post" action="pagina1.php" onsubmit="return valida_form(this)">
+                    <form id="frmQuestao1" class="form-inline" name="frmQuestao1" method="post" action="pagina2.php">
                         <img src="logo.png" width="255" height="187"><br>
                         <label name="lblComanda"><h2><b>Comanda</b></h2></label><br>
-                        <input type="text" class="form-control" name="comanda" id="comanda" onkeyup="if (this.value.length >= 8) {
-                                    enableDiv();
-                                }"  maxlength="8" autofocus="true"><br>
-
+                        <input type="text" class="form-control" name="comanda" id="comanda" maxlength="8" autofocus="true" value="<?php echo $_SESSION["comanda"] ?>" readonly="true"><br>
+                        <label name="lblQuestao1"><h4>1/3. Como você avalia o tempo de espera do atendimento?</h4></label><br>
+                        <div id="botoes" onkeypress="tecla_pressionada(event)" >
+                            <button name="btn1" id="btn1" type="button" class="btn btn-danger" value="ruim"><b>Ruim!</b></button>
+                            <button name="btn2" id="btn2" type="button" class="btn btn-warning" value=" (return tecla_pressionada(x)})"><b>Bom!</b></button>
+                            <button name="btn3" id="btn3" type="button" class="btn btn-success" value="otimo"><b>Ótimo!</b></button>
+                        </div>
                     </form>
                 </div>
             </div>
