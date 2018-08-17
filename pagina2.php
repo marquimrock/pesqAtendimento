@@ -4,7 +4,7 @@ include './conexaoFirebird.php';
 
 session_start();
 $_SESSION["comanda"] = $_POST['comanda'];
-$_SESSION["questao1"] = $_POST['btn2'];
+//$_SESSION["questao1"] = $_POST['btnQuestao1'];
 //echo $_POST['comanda'];
 var_dump($_SESSION);
 $_SESSION["vendedor"] = selectComanda($_POST['comanda']);
@@ -26,7 +26,7 @@ $_SESSION["vendedor"] = selectComanda($_POST['comanda']);
                   <img src="logo.png" width="255" height="187">
                   <form class="form-inline" name="frmQuestao2" method="post" action="pagina3.php">
                       <label name="lblComanda"><h2><b>Comanda</b></h2></label><br>
-                      <input type="text" class="form-control" name="comanda" value="<?php echo $_SESSION["comanda"] ?>" readonly="true"> <br><br>
+                      <input type="text" class="form-control" name="comanda" value="ruim" readonly="true"> <br><br>
                       <label name="lblQuestao2"><h4>2/3. Como você avalia o nosso atendimento?</h4></label><br>
                       <button name="btnQuestao2" type="submit" class="btn btn-danger" value="ruim"><b>Ruim!</b></button>
                       <button name="btnQuestao2" type="submit" class="btn btn-warning" value="bom"><b>Bom!</b></button>

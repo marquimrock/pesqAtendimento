@@ -22,8 +22,8 @@ $_SESSION["comanda"] = $_POST['comanda'];
                 var tecla = x.keyCode;
                 if (tecla == 49) {
                     alert("ruim");
-                    var teste = document.getElementById("btn2").getAttribute(id);
-                    alert (teste);
+                   document.getElementById("frmQuestao1").submit();
+                   document.getElementById("btn1").setAttribute("id", "1");
                     
                 }
                 if (tecla == 50) {
@@ -50,7 +50,7 @@ $_SESSION["comanda"] = $_POST['comanda'];
                         <label name="lblQuestao1"><h4>1/3. Como você avalia o tempo de espera do atendimento?</h4></label><br>
                         <div id="botoes" onkeypress="tecla_pressionada(event)" >
                             <button name="btn1" id="btn1" type="button" class="btn btn-danger" value="ruim"><b>Ruim!</b></button>
-                            <button name="btn2" id="btn2" type="button" class="btn btn-warning" value=" (return tecla_pressionada(x)})"><b>Bom!</b></button>
+                            <button name="btn2" id="btn2" type="button" class="btn btn-warning" value="bom"><b>Bom!</b></button>
                             <button name="btn3" id="btn3" type="button" class="btn btn-success" value="otimo"><b>Ótimo!</b></button>
                         </div>
                     </form>
