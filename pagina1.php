@@ -16,28 +16,21 @@ $_SESSION["comanda"] = $_POST['comanda'];
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 
-
-        <script>
+        <script type="text/javascript">
             function tecla_pressionada(x) {
-                var tecla = x.keyCode;
-                if (tecla == 49) {
-                    alert("ruim");
-                   document.getElementById("frmQuestao1").submit();
-                   document.getElementById("btn1").setAttribute("id", "1");
-                    
+                var tecla = x.which;
+                if (tecla == 49) {                     
+                     window.location.href = "http://localhost/pesqAtendimento/pagina2.php?questao1=1"; 
                 }
                 if (tecla == 50) {
-                    document.getElementById("btn2").focus();
-                    document.getElementById("frmQuestao1").submit();
-                    
+                    window.location.href = "http://localhost/pesqAtendimento/pagina2.php?questao1=2";
                 }
                 if (tecla == 51) {
-                    alert("otimo").value();
+                    window.location.href = "http://localhost/pesqAtendimento/pagina2.php?questao1=3";
                 }
-                this.form.submit();
-                return tecla;
             }
-        </script>
+        </script>       
+
     </head>
     <body onload="disableDiv()">
         <div class="container-fluid" align="center"><br>
@@ -49,9 +42,9 @@ $_SESSION["comanda"] = $_POST['comanda'];
                         <input type="text" class="form-control" name="comanda" id="comanda" maxlength="8" autofocus="true" value="<?php echo $_SESSION["comanda"] ?>" readonly="true"><br>
                         <label name="lblQuestao1"><h4>1/3. Como você avalia o tempo de espera do atendimento?</h4></label><br>
                         <div id="botoes" onkeypress="tecla_pressionada(event)" >
-                            <button name="btn1" id="btn1" type="button" class="btn btn-danger" value="ruim"><b>Ruim!</b></button>
-                            <button name="btn2" id="btn2" type="button" class="btn btn-warning" value="bom"><b>Bom!</b></button>
-                            <button name="btn3" id="btn3" type="button" class="btn btn-success" value="otimo"><b>Ótimo!</b></button>
+                            <button name="btn1pag1" id="btn1pag1" type="button" class="btn btn-danger" value="1" onclick="location.href= 'http://localhost/pesqAtendimento/pagina2.php?questao1=1' "><b>Ruim!</b></button>
+                            <button name="btn2pag1" id="btn2pag1" type="button" class="btn btn-warning" value="2" onclick="location.href= 'http://localhost/pesqAtendimento/pagina2.php?questao1=2' "><b>Bom!</b></button>
+                            <button name="btn3pag1" id="btn3pag1" type="button" class="btn btn-success" value="3" onclick="location.href= 'http://localhost/pesqAtendimento/pagina2.php?questao1=3' "><b>Ótimo!</b></button>
                         </div>
                     </form>
                 </div>

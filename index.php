@@ -15,7 +15,6 @@ session_start();
         <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
         <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 
-
         <script>
             function somenteNumeros(num) {
                 var er = /[^0-9.]/;
@@ -31,45 +30,25 @@ session_start();
                     focus.comanda;
                     return false;
                 } else {
-                    document.frmQuestao1.submit();                
+                    document.frmIndex.submit();                
             }
             }
             function enableDiv() {
                 
-                document.getElementById("frmQuestao1").submit();
-            }
-            function disableDiv() {
-                document.getElementById("btnQuestao1").disabled = true;
-                document.getElementById("btnQuestao2").disabled = true;
-                document.getElementById("btnQuestao3").disabled = true;
-            }
-            function tecla_pressionada(x) {
-                var tecla = x.which;
-                if (tecla == 49) {
-                    alert("ruim");
-                    document.getElementById("frmQuestao1").submit();
-                }
-                if (tecla == 50) {
-                    alert("bom");
-                }
-                if (tecla == 51) {
-                    alert("otimo");
-                }
-                return tecla;
+                document.getElementById("frmIndex").submit();
             }
         </script>
     </head>
-    <body onload="disableDiv()">
+    <body>
         <div class="container-fluid" align="center"><br>
             <div class="panel panel-default" style="background-color: #FFFFCC;" >
                 <div class="panel-body">
-                    <form id="frmQuestao1" class="form-inline" name="frmQuestao1" method="post" action="pagina1.php" onsubmit="return valida_form(this)">
+                    <form id="frmIndex" class="form-inline" name="frmIndex" method="post" action="pagina1.php" onsubmit="return valida_form(this)">
                         <img src="logo.png" width="255" height="187"><br>
                         <label name="lblComanda"><h2><b>Comanda</b></h2></label><br>
                         <input type="text" class="form-control" name="comanda" id="comanda" onkeyup="if (this.value.length >= 8) {
                                     enableDiv();
                                 }"  maxlength="8" autofocus="true"><br>
-
                     </form>
                 </div>
             </div>

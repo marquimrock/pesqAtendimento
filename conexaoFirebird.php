@@ -17,6 +17,7 @@ $sql2 = 'SELECT * FROM vendedores';
 
 
 function selectComanda($numero) {
+    $numero = '11111111';
     $servidor = '127.0.0.1:C:/Mobility_Gestao/banco/banco.FDB';
 
 //conexão com o banco, se der erro mostrara uma mensagem.
@@ -33,6 +34,7 @@ function selectComanda($numero) {
 
     while ($row = ibase_fetch_object($query)) {
         //imprimi as linhas na tela
+        echo $row->S_NOME;
         return $row->S_NOME ;
     }
     
