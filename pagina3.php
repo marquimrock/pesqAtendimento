@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include_once './conexaoFirebird.php';
 $questao2 = $_GET["questao2"];
 switch ($questao2) {
     case 1:
@@ -13,6 +13,7 @@ switch ($questao2) {
          $_SESSION["questao2"] = "otimo";
         break;
 }
+$_SESSION["vendedor"] = selectComanda($_SESSION["comanda"]);
 ?>
 <html lang="pt-BR">
     <head>

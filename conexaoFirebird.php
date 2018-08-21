@@ -15,29 +15,30 @@ $sql = 'SELECT * FROM usuarios';
 
 $sql2 = 'SELECT * FROM vendedores';
 
-
 function selectComanda($numero) {
-    $numero = '11111111';
     $servidor = '127.0.0.1:C:/Mobility_Gestao/banco/banco.FDB';
 
 //conexão com o banco, se der erro mostrara uma mensagem.
     if (!($dbh = ibase_connect($servidor, 'SYSDBA', 'masterkey')))
         die('Erro ao conectar: ' . ibase_errmsg());
 
-     
+
     $sql = 'SELECT NUMERO, S_NOME FROM MESAS'
             . ' INNER JOIN VENDEDORES'
             . ' ON MESAS.ID_VENDEDOR = VENDEDORES.ID '
-            . ' WHERE MESAS.ID = ' . $numero;
-    
+            . ' WHERE MESAS.NUMERO = ' . $numero;
+
     $query = ibase_query($dbh, $sql);
 
     while ($row = ibase_fetch_object($query)) {
         //imprimi as linhas na tela
-        echo $row->S_NOME;
-        return $row->S_NOME ;
+        return $row->S_NOME;
     }
-    
+    //Libera a memoria usada
+    ibase_free_result($query);
+
+    //fecha conexão com o firebird
+    ibase_close($dbh);
 }
 
 /*

@@ -2,11 +2,7 @@
 
 session_start();
 include 'pesquisa.php';
-include './conexaoFirebird.php';
 
-var_dump($_SESSION["comanda"]);
-pause;
-$vendedor = selectComanda('11111111');
 $questao3 = $_GET["questao3"];
 switch ($questao3) {
     case 1:
@@ -27,7 +23,7 @@ include './conexaoFirebird.php';
 
 $pesquisa = new pesquisa();
 $pesquisa->setComanda($_SESSION["comanda"]);
-$pesquisa->setVendedor($vendedor);
+$pesquisa->setVendedor($_SESSION["vendedor"]);
 $pesquisa->setQuestao1($_SESSION["questao1"]);
 $pesquisa->setQuestao2($_SESSION["questao2"]);
 $pesquisa->setQuestao3($_SESSION["questao3"]);
