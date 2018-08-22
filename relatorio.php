@@ -49,14 +49,14 @@ $date = date('Y-m-d');
             <br>
 
             <div class="container-fluid">
-                <img src="logo.png" width="118" height="67" align="left">
-                <div class="well well-md" align="center" >
-                    <b><i><font color="#880000">RELATÓRIO DE SATISFAÇÃO DO CLIENTE</font></i></b>
-                </div>
+              <img src="logo.png" width="150" height="97" align="left">
+              <div class="well well-md" align="center" >
+                  <h3><b><i>RELATORIO DE SATISFAÇÃO DO CLIENTE</i></b></h3>
+              </div>
 
                 <div class="row content">
                     <div class="col-sm-12 text-left">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="filtroRelatorio">
                             <div class="panel-body" >
                                 <!-- PRIMEIRA LINHA FF9966-->
                                 <div class="form-group col-md-12">
@@ -74,7 +74,7 @@ $date = date('Y-m-d');
                                             </select>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label name="lblQuestao1" id="lblQuestao1">Questao1</label>
+                                            <label name="lblQuestao1" id="lblQuestao1">Sobre o ambiente</label>
                                             <select name="questao1" class="form-control">
                                                 <option value=null>Selecione..</option>
                                                 <option value="ruim">Ruim!</option>
@@ -83,7 +83,7 @@ $date = date('Y-m-d');
                                             </select>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label name="lblQuestao2" id="lblQuestao2">Questao 2</label>
+                                            <label name="lblQuestao2" id="lblQuestao2">Sobre o atendimento</label>
                                             <select name="questao2" class="form-control">
                                                 <option value="null">Selecione..</option>
                                                 <option value="ruim">Ruim</option>
@@ -92,7 +92,7 @@ $date = date('Y-m-d');
                                             </select>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label name="lblQuestao3" id="lblQuestao3">Questao 3</label>
+                                            <label name="lblQuestao3" id="lblQuestao3">Sobre as refeições</label>
                                             <select name="questao3" class="form-control">
                                                 <option value="null">Selecione..</option>
                                                 <option value="ruim">Ruim</option>
@@ -138,9 +138,9 @@ $date = date('Y-m-d');
                                 <div class="form-group col-md-12">
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
-                                            <!-- PESQUISAR -->
-                                            <button type="submit" class="btn btn-default" value="pesquisar" style="border-color: #FFCC99; background-color: #FFFFCC;">
-                                              <font color="orange"><b><i>Pesquisar</i></b></font>
+                                            <!-- PESQUISAR  style="border-color: #FFCC99; background-color: #FFDEAD;" <font color="#CD853F;">-->
+                                            <button type="submit" class="btn btn-default" value="pesquisar" id="btnPesquisa">
+                                              <b><i>Pesquisar</i></b>
                                             </button>
                                         </div>
                                     </div>
@@ -155,21 +155,18 @@ $date = date('Y-m-d');
         <div class="container-fluid">
           <div class="row content">
               <div class="col-sm-12 text-left">
-                  <div class="panel panel-default">
+                  <div class="panel panel-default" id="relatorio">
                       <div class="panel-body">
                           <table  class="table table-striped" width="100%">
-                              <thead><!-- style="background-color: #FFFF99" -->
-                                  <tr style="background-color: #FFFF99">
-                                      <td align="center"><b><font color="#880000">Comanda</font></b></th>
-                                      <td align="center"><b><font color="#880000">Vendedor(a)</font></b></th>
-                                      <td align="center"><b><font color="#880000">Questão 2</font></b></th>
-                                      <td align="center"><b><font color="#880000">Questão 1</font></b></th>
-                                      <td align="center"><b><font color="#880000">Questão 3</font></b></th>
-                                      <td align="center"><b><font color="#880000">Data</font></b></th>
-                                      <td align="center"><b><font color="#880000">Hora</font></b></th></div>
-                                  </tr>
-                              </thead>
-                              <tbody>
+                              <tr id=trRelatorio>
+                                  <td align="center"><b>Comanda</b></th>
+                                  <td align="center"><b>Vendedor(a)</b></th>
+                                  <td align="center"><b>Sobre o ambiente</b></th>
+                                  <td align="center"><b>Sobre o atendimento</b></th>
+                                  <td align="center"><b>Sobre as Refeições</b></th>
+                                  <td align="center"><b>Data</b></th>
+                                  <td align="center"><b>Hora</b></th></div>
+                              </tr>
                                   <?php
                                   include 'pesquisa.php';
                                   include 'conexao.php';
@@ -194,12 +191,13 @@ $date = date('Y-m-d');
                                           $questao3 = $_POST['questao3'];
                                           $sql = $sql . " AND questao3 = '$questao3' ";
                                       }
-                                      if ($_POST['dataInicial'] !== 'null') {
+                                      if (!empty($_POST['dataInicial']) && !empty($_POST['dataFinal'])) {
                                           $dataInicial = $_POST['dataInicial'];
-                                          $sql = $sql . " AND data = '$date' ";
+                                          $dataFinal = $_POST['dataFinal'];
+                                          $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
                                       }
                                       /*
-                                        if ($_POST['dataFinal'] !== 'null') {
+                                      if ($_POST['dataFinal'] !== 'null') {
                                         $dataFinal = $_POST['dataFinal'];
                                         $sql = $sql . " AND data = '$date' ";
                                         echo $datFinal;

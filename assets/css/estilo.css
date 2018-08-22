@@ -1,13 +1,55 @@
-div.well {
-   background-color: #FFFF99;
-   border-color: #FFCC00;
-   }
-div.panel {
-  border-color: #FFCC00;
+body {
+  background-color: #FFFFFF;
 }
+
+div.well {
+  background-color: #FF6347;
+  border-color: #FF4500;
+  text-shadow: 1px 1px 1px #000000;
+  color: #FFE4E1;
+}
+
 select.form-control {
   border-color: #FFCC99;
 }
+
 input.form-control {
+  border-color: #FFCC99;
+}
+
+div.panel#votacao {
+  border-color: #FFCC00;
+  background-color: #FFFFF0;
+  text-shadow: 1px 1px 1px #000000;
+  color: #8B0000;
+}
+
+label#lbVotacao {
+  text-shadow: 0px 0px 0px #000000;
+  color: #8B0000;
+}
+
+div.panel#filtroRelatorio {
+  border-color: #FF4500;
+  background-color: #FFFFF0;
+  color: #D2691E;
+}
+
+div.panel#relatorio {
+  border-color: #FF4500;
+  background-color: #FFFFF0;
+  color: #D2691E;
+}
+
+tr#trRelatorio {
+  background-color: #FF6347;
+  text-shadow: 1px 1px 1px #000000;
+  color: #FFE4E1;
+}
+
+button#btnPesquisa {
+  background-color: #FF6347;
+  text-shadow: 1px 1px 1px #000000;
+  color: #FFE4E1;
   border-color: #FFCC99;
 }

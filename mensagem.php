@@ -12,7 +12,7 @@ header("refresh: 5;index.php");
     </head>
     <body>
         <div class="container-fluid" align="center"><br>
-          <div class="panel panel-default" style="background-color: #FFFFCC;" >
+          <div class="panel panel-default" id="votacao">
               <div class="panel-body">
                   <img src="logo.png" width="255" height="187">
                   <form id="frmQuestao1" class="form-inline" name="frmQuestao1" method="post" action="pagina2.php">
