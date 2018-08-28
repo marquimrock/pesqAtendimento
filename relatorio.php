@@ -30,8 +30,6 @@ $date = date('Y-m-d');
                     monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
                 });
             });
-        </script>
-        <script>
             $(function () {
                 $("#dataFinal").datepicker({
                     dateFormat: 'dd/mm/yy',
@@ -47,13 +45,11 @@ $date = date('Y-m-d');
     <body>
         <form name="frmRel" method="post" action="relatorio.php">
             <br>
-
             <div class="container-fluid">
               <img src="logo.png" width="150" height="97" align="left">
               <div class="well well-md" align="center" >
-                  <h3><b><i>RELATORIO DE SATISFAÇÃO DO CLIENTE</i></b></h3>
+                  <h3><b><i>RELATÓRIO DE SATISFAÇÃO DO CLIENTE</i></b></h3>
               </div>
-
                 <div class="row content">
                     <div class="col-sm-12 text-left">
                         <div class="panel panel-default" id="filtroRelatorio">
@@ -100,41 +96,41 @@ $date = date('Y-m-d');
                                                 <option value="otimo">Otimo</option>
                                             </select>
                                         </div>
-                                        <div class="form-group col-md-4">
-
+                                        <div class="form-group col-md-2">
+                                            <label name="lblDataInicial" id="lblDataInicial">Data Inicial:</label>
+                                            <input type="text" id="dataInicial" name="dataInicial" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label name="lblDataFinal" id="lblDataFinal">Data Final:</label>
+                                            <input type="text" id="dataFinal" name="dataFinal" class="form-control"/>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- SEGUNDA LINHA -->
+                                <!--
                                 <div class="form-group col-md-12">
                                     <div class="form-row">
                                         <div class="form-group col-md-2">
-                                            <form method="post" action="relatorio.php" name="dataInicial">
-                                                <label name="lblDataInicial" id="lblDataInicial">Data Inicial:</label>
-                                                <input type="text" id="dataInicial" name="dataInicial" class="form-control"/>
-                                            </form>
+                                            <label name="lblDataInicial" id="lblDataInicial">Data Inicial:</label>
+                                            <input type="text" id="dataInicial" name="dataInicial" class="form-control"/>
                                         </div>
                                         <div class="form-group col-md-2">
-                                          <form method="post" action="relatorio.php" name="dataFinal">
-                                              <label name="lblDataFinal" id="lblDataFinal">Data Final:</label>
-                                              <input type="text" id="dataFinal" name="dataFinal" class="form-control"/>
-                                          </form>
+                                            <label name="lblDataFinal" id="lblDataFinal">Data Final:</label>
+                                            <input type="text" id="dataFinal" name="dataFinal" class="form-control"/>
                                         </div>
+
                                         <div class="form-group col-md-2">
                                             <label name="lblHoraInicial" id="lblHoraInicial">Hora Inicial:</label>
-                                            <form class="form-inline" method="post">
-                                                <input type="time" class="form-control" style="width: 167px">
-                                            </form>
+                                            <input type="time" class="form-control" style="width: 167px">
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label name="lblHoraFinal" id="lblHoraFinal">Hora Final:</label>
-                                            <form class="form-inline" method="post">
-                                                <input type="time" class="form-control" style="width: 167px">
-                                            </form>
+                                            <input type="time" class="form-control" style="width: 167px">
                                         </div>
+
                                     </div>
                                 </div>
-                                <!-- TERCEIRA LINHA -->
+                                -->
+                                <!-- SEGUNDA LINHA -->
                                 <div class="form-group col-md-12">
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
@@ -191,19 +187,20 @@ $date = date('Y-m-d');
                                           $questao3 = $_POST['questao3'];
                                           $sql = $sql . " AND questao3 = '$questao3' ";
                                       }
-                                      if (!empty($_POST['dataInicial']) && !empty($_POST['dataFinal'])) {
-                                          $dataInicial = $_POST['dataInicial'];
-                                          $dataFinal = $_POST['dataFinal'];
-                                          $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
+
+                                      $dataInicial = implode("-",array_reverse(explode("/",$_POST['dataInicial'])));
+
+                                      if(empty($dataFinal)){
+                                          $dataFinal = date('Y-m-d');
+                                          if (!empty($dataInicial) || !empty($dataFinal)) {
+                                              $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
+                                          }
+                                      } else {
+                                          $dataFinal = implode("-",array_reverse(explode("/",$_POST['dataFinal'])));
+                                          if (!empty($dataInicial) || !empty($dataFinal)) {
+                                              $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
+                                          }
                                       }
-                                      /*
-                                      if ($_POST['dataFinal'] !== 'null') {
-                                        $dataFinal = $_POST['dataFinal'];
-                                        $sql = $sql . " AND data = '$date' ";
-                                        echo $datFinal;
-                                        }
-                                       *
-                                       */
 
                                       $result = $conn->query($sql);
                                       if ($result->num_rows > 0) {
