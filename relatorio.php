@@ -134,7 +134,7 @@ $date = date('Y-m-d');
                                 <div class="form-group col-md-12">
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
-                                            <!-- PESQUISAR  style="border-color: #FFCC99; background-color: #FFDEAD;" <font color="#CD853F;">-->
+                                            <!-- PESQUISAR -->
                                             <button type="submit" class="btn btn-default" value="pesquisar" id="btnPesquisa">
                                               <b><i>Pesquisar</i></b>
                                             </button>
@@ -189,14 +189,13 @@ $date = date('Y-m-d');
                                       }
 
                                       $dataInicial = implode("-",array_reverse(explode("/",$_POST['dataInicial'])));
-
+                                      $dataFinal = implode("-",array_reverse(explode("/",$_POST['dataFinal'])));
                                       if(empty($dataFinal)){
                                           $dataFinal = date('Y-m-d');
                                           if (!empty($dataInicial) || !empty($dataFinal)) {
                                               $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
                                           }
                                       } else {
-                                          $dataFinal = implode("-",array_reverse(explode("/",$_POST['dataFinal'])));
                                           if (!empty($dataInicial) || !empty($dataFinal)) {
                                               $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
                                           }
