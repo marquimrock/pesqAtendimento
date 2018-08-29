@@ -58,9 +58,11 @@ $date = date('Y-m-d');
                                 <div class="form-group col-md-12">
                                     <div class="form-row">
                                         <div class="form-group col-md-2">
-                                            <label name="lblVendedor" id="lblVendedor">Vendedor</label>
+                                            <label name="lblVendedor" id="lblVendedor">Vendedor</label>'
                                             <select name="vendedor" class="form-control">
-                                                <option value=null >Selecione..</option>
+                                                <option value="<?php if(!empty($_POST['vendedor'])){ echo $_POST['vendedor']; } else { echo "";} ?>">
+                                                  <?php if(!empty($_POST['vendedor'])){ echo $_POST['vendedor']; } else { echo "Selecione..";} ?>
+                                                </option>
                                                 <?php
                                                 while ($row = ibase_fetch_object($query2)) {
                                                     //imprimi as linhas na tela
@@ -70,27 +72,33 @@ $date = date('Y-m-d');
                                             </select>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label name="lblQuestao1" id="lblQuestao1">Sobre o ambiente</label>
+                                            <label name="lblQuestao1" id="lblQuestao1">Ambiente</label>
                                             <select name="questao1" class="form-control">
-                                                <option value=null>Selecione..</option>
+                                                <option value="<?php if(empty($_POST['questao1'])){ $_POST['questao1'] = 'null';} else { echo $_POST['questao1']; } ?>">
+                                                    <?php if($_POST['questao1'] === 'null'){ echo "Selecione.."; } else { echo $_POST['questao1']; } ?>
+                                                </option>
                                                 <option value="ruim">Ruim!</option>
                                                 <option value="bom">Bom!</option>
                                                 <option value="otimo">Otimo!</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label name="lblQuestao2" id="lblQuestao2">Sobre o atendimento</label>
+                                            <label name="lblQuestao2" id="lblQuestao2">Atendimento</label>
                                             <select name="questao2" class="form-control">
-                                                <option value="null">Selecione..</option>
+                                                <option value="<?php if(empty($_POST['questao2'])){ $_POST['questao2'] = 'null';} else { echo $_POST['questao2']; } ?>">
+                                                  <?php if($_POST['questao2'] === 'null'){ echo "Selecione.."; } else { echo $_POST['questao2']; } ?>
+                                                </option>
                                                 <option value="ruim">Ruim</option>
                                                 <option value="bom">Bom</option>
                                                 <option value="otimo">Otimo</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label name="lblQuestao3" id="lblQuestao3">Sobre as refeições</label>
+                                            <label name="lblQuestao3" id="lblQuestao3">Refeições</label>
                                             <select name="questao3" class="form-control">
-                                                <option value="null">Selecione..</option>
+                                                <option value="<?php if(empty($_POST['questao3'])){ $_POST['questao3'] = 'null';} else { echo $_POST['questao3']; } ?>">
+                                                  <?php if($_POST['questao3'] === 'null'){ echo "Selecione.."; } else { echo $_POST['questao3']; } ?>
+                                                </option>
                                                 <option value="ruim">Ruim</option>
                                                 <option value="bom">Bom</option>
                                                 <option value="otimo">Otimo</option>
@@ -98,46 +106,26 @@ $date = date('Y-m-d');
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label name="lblDataInicial" id="lblDataInicial">Data Inicial:</label>
-                                            <input type="text" id="dataInicial" name="dataInicial" class="form-control"/>
+                                            <input type="text" id="dataInicial" name="dataInicial" class="form-control" value="<?php if(!empty($_POST['dataInicial'])){ echo $_POST['dataInicial']; } ?>"/>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label name="lblDataFinal" id="lblDataFinal">Data Final:</label>
-                                            <input type="text" id="dataFinal" name="dataFinal" class="form-control"/>
+                                            <input type="text" id="dataFinal" name="dataFinal" class="form-control" value="<?php if(!empty($_POST['dataFinal'])){ echo $_POST['dataFinal']; } ?>"/>
                                         </div>
                                     </div>
                                 </div>
-                                <!--
-                                <div class="form-group col-md-12">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-2">
-                                            <label name="lblDataInicial" id="lblDataInicial">Data Inicial:</label>
-                                            <input type="text" id="dataInicial" name="dataInicial" class="form-control"/>
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label name="lblDataFinal" id="lblDataFinal">Data Final:</label>
-                                            <input type="text" id="dataFinal" name="dataFinal" class="form-control"/>
-                                        </div>
-
-                                        <div class="form-group col-md-2">
-                                            <label name="lblHoraInicial" id="lblHoraInicial">Hora Inicial:</label>
-                                            <input type="time" class="form-control" style="width: 167px">
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label name="lblHoraFinal" id="lblHoraFinal">Hora Final:</label>
-                                            <input type="time" class="form-control" style="width: 167px">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                -->
                                 <!-- SEGUNDA LINHA -->
                                 <div class="form-group col-md-12">
                                     <div class="form-row">
-                                        <div class="form-group col-md-12">
+                                        <div class="form-group col-md-2">
                                             <!-- PESQUISAR -->
                                             <button type="submit" class="btn btn-default" value="pesquisar" id="btnPesquisa">
                                               <b><i>Pesquisar</i></b>
                                             </button>
+                                        </div>
+                                        <div class="form-group col-md-9">
+
+                                            <!-- --><a href="http://localhost/pesquisa/pesqAtendimento/relatorio.php">Limpar campos</a>
                                         </div>
                                     </div>
                                 </div>
@@ -149,84 +137,104 @@ $date = date('Y-m-d');
         </form>
 
         <div class="container-fluid">
-          <div class="row content">
-              <div class="col-sm-12 text-left">
-                  <div class="panel panel-default" id="relatorio">
-                      <div class="panel-body">
-                          <table  class="table table-striped" width="100%">
-                              <tr id=trRelatorio>
-                                  <td align="center"><b>Comanda</b></th>
-                                  <td align="center"><b>Vendedor(a)</b></th>
-                                  <td align="center"><b>Sobre o ambiente</b></th>
-                                  <td align="center"><b>Sobre o atendimento</b></th>
-                                  <td align="center"><b>Sobre as Refeições</b></th>
-                                  <td align="center"><b>Data</b></th>
-                                  <td align="center"><b>Hora</b></th></div>
-                              </tr>
-                                  <?php
-                                  include 'pesquisa.php';
-                                  include 'conexao.php';
+            <div class="row content">
+                <div class="col-sm-12 text-left">
+                    <div class="panel panel-default" id="relatorio">
+                        <div class="panel-body">
+                            <table  class="table table-striped" width="100%">
+                                <tr id=trRelatorio>
+                                    <td align="center"><b>Comanda</b></th>
+                                    <td align="center"><b>Vendedor(a)</b></th>
+                                    <td align="center"><b>Ambiente</b></th>
+                                    <td align="center"><b>Atendimento</b></th>
+                                    <td align="center"><b>Refeições</b></th>
+                                    <td align="center"><b>Data</b></th>
+                                    <td align="center"><b>Hora</b></th>
+                                </tr>
+                                <tbody>
+                                    <?php
+                                    include 'pesquisa.php';
+                                    include 'conexao.php';
 
-                                  echo '<tbody>';
+                                    if (isset($_POST['vendedor'])) {
+                                        $sql = "SELECT * FROM pesquisa WHERE '1' = '1' ";
+                                        if ($_POST['vendedor'] !== 'null') {
+                                            $vendedor = $_POST['vendedor'];
+                                            $sql = $sql . " AND vendedor = '$vendedor' ";
+                                        }
+                                        if ($_POST['questao1'] !== 'null') {
+                                            $questao1 = $_POST['questao1'];
+                                            $sql = $sql . " AND questao1 = '$questao1' ";
+                                        }
+                                        if ($_POST['questao2'] !== 'null') {
+                                            $questao2 = $_POST['questao2'];
+                                            $sql = $sql . " AND questao2 = '$questao2' ";
+                                        }
+                                        if ($_POST['questao3'] !== 'null') {
+                                            $questao3 = $_POST['questao3'];
+                                            $sql = $sql . " AND questao3 = '$questao3' ";
+                                        }
 
-                                  if (isset($_POST['vendedor'])) {
-                                      $sql = "SELECT * FROM pesquisa WHERE '1' = '1' ";
-                                      if ($_POST['vendedor'] !== 'null') {
-                                          $vendedor = $_POST['vendedor'];
-                                          $sql = $sql . " AND vendedor = '$vendedor' ";
-                                      }
-                                      if ($_POST['questao1'] !== 'null') {
-                                          $questao1 = $_POST['questao1'];
-                                          $sql = $sql . " AND questao1 = '$questao1' ";
-                                      }
-                                      if ($_POST['questao2'] !== 'null') {
-                                          $questao2 = $_POST['questao2'];
-                                          $sql = $sql . " AND questao2 = '$questao2' ";
-                                      }
-                                      if ($_POST['questao3'] !== 'null') {
-                                          $questao3 = $_POST['questao3'];
-                                          $sql = $sql . " AND questao3 = '$questao3' ";
-                                      }
+                                        $dataInicial = implode("-",array_reverse(explode("/",$_POST['dataInicial'])));
+                                        $dataFinal = implode("-",array_reverse(explode("/",$_POST['dataFinal'])));
+                                        if(empty($dataFinal)){
+                                            $dataFinal = date('Y-m-d');
+                                            if (!empty($dataInicial) || !empty($dataFinal)) {
+                                                $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
+                                            }
+                                        } else {
+                                            if (!empty($dataInicial) || !empty($dataFinal)) {
+                                                $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
+                                            }
+                                        }
 
-                                      $dataInicial = implode("-",array_reverse(explode("/",$_POST['dataInicial'])));
-                                      $dataFinal = implode("-",array_reverse(explode("/",$_POST['dataFinal'])));
-                                      if(empty($dataFinal)){
-                                          $dataFinal = date('Y-m-d');
-                                          if (!empty($dataInicial) || !empty($dataFinal)) {
-                                              $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
-                                          }
-                                      } else {
-                                          if (!empty($dataInicial) || !empty($dataFinal)) {
-                                              $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
-                                          }
-                                      }
-
-                                      $result = $conn->query($sql);
-                                      if ($result->num_rows > 0) {
-                                          // output data of each
-                                          while ($row = $result->fetch_assoc()) {
-                                              echo '<tr>';
-                                              echo '<td align="center">' . $row["comanda"] . '</td>';
-                                              echo '<td align="center">' . $row["vendedor"] . '</td>';
-                                              echo '<td align="center">' . $row["questao1"] . '</td>';
-                                              echo '<td align="center">' . $row["questao2"] . '</td>';
-                                              echo '<td align="center">' . $row["questao3"] . '</td>';
-                                              echo '<td align="center">' . $row["data"] . '</td>';
-                                              echo '<td align="center">' . $row["hora"] . '</td>';
-                                              echo '</tr>';
-                                          }
-                                      } else {
-                                          echo "0 results";
-                                      }
-                                  }
-                                  $conn->close();
-                                  ?>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
+                                        $result = $conn->query($sql);
+                                        if ($result->num_rows > 0) {
+                                            // output data of each
+                                            while ($row = $result->fetch_assoc()) {
+                                                echo '<tr>';
+                                                echo '<td align="center">' . $row["comanda"] . '</td>';
+                                                echo '<td align="center">' . $row["vendedor"] . '</td>';
+                                                echo '<td align="center">' . $row["questao1"] . '</td>';
+                                                echo '<td align="center">' . $row["questao2"] . '</td>';
+                                                echo '<td align="center">' . $row["questao3"] . '</td>';
+                                                echo '<td align="center">' . $row["data"] . '</td>';
+                                                echo '<td align="center">' . $row["hora"] . '</td>';
+                                                echo '</tr>';
+                                            }
+                                        } else {
+                                            echo "0 results";
+                                        }
+                                    }
+                                    $conn->close();
+                                    ?>
+                                </tbody>
+                            </table>
+                            <!-- PAGINAÇÃO
+                            <nav aria-label="Page navigation" align="center">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                          -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="assets/js/bootstrap.js"></script>
     </body>
