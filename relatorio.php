@@ -58,10 +58,10 @@ $date = date('Y-m-d');
                                 <div class="form-group col-md-12">
                                     <div class="form-row">
                                         <div class="form-group col-md-2">
-                                            <label name="lblVendedor" id="lblVendedor">Vendedor</label>'
+                                            <label name="lblVendedor" id="lblVendedor">Vendedor</label>
                                             <select name="vendedor" class="form-control">
-                                                <option value="<?php if(!empty($_POST['vendedor'])){ echo $_POST['vendedor']; } else { echo "";} ?>">
-                                                  <?php if(!empty($_POST['vendedor'])){ echo $_POST['vendedor']; } else { echo "Selecione..";} ?>
+                                                <option value="<?php if(empty($_POST['vendedor'])){ $_POST['vendedor'] = 'null';} else { echo $_POST['vendedor']; } ?>">
+                                                  <?php if($_POST['vendedor'] === 'null'){ echo "Selecione.."; } else { echo $_POST['vendedor']; } ?>
                                                 </option>
                                                 <?php
                                                 while ($row = ibase_fetch_object($query2)) {
@@ -155,9 +155,8 @@ $date = date('Y-m-d');
                                     <?php
                                     include 'pesquisa.php';
                                     include 'conexao.php';
-
-                                    if (isset($_POST['vendedor'])) {
-                                        $sql = "SELECT * FROM pesquisa WHERE '1' = '1' ";
+                                    $sql = "SELECT * FROM pesquisa WHERE '1' = '1' ";
+                                    if (isset($_POST['vendedor'])) {                                        
                                         if ($_POST['vendedor'] !== 'null') {
                                             $vendedor = $_POST['vendedor'];
                                             $sql = $sql . " AND vendedor = '$vendedor' ";
@@ -198,7 +197,8 @@ $date = date('Y-m-d');
                                                 echo '<td align="center">' . $row["questao1"] . '</td>';
                                                 echo '<td align="center">' . $row["questao2"] . '</td>';
                                                 echo '<td align="center">' . $row["questao3"] . '</td>';
-                                                echo '<td align="center">' . $row["data"] . '</td>';
+                                                $data = implode("/",array_reverse(explode("-",$row["data"])));
+                                                echo '<td align="center">' . $data . '</td>';
                                                 echo '<td align="center">' . $row["hora"] . '</td>';
                                                 echo '</tr>';
                                             }
