@@ -56,8 +56,8 @@ switch ($questao1) {
                         <label name="lblComanda"><h4><b>N. da comanda:</b></h4></label><br>
                         <input type="text" class="form-control" name="comanda" value="<?php echo $_SESSION["comanda"]; ?>" readonly="true"> <br><br>
 
-                        <div class="panel panel-default" id="votacao">
-                            <div class="panel-body" style="background-color: #FFEBCD; ">
+                        <div class="panel panel-default" id="votacao" style="background-color: #FFEBCD; height:142px;">
+                            <div class="panel-body">
                                 <label name="lblQuestao2" id="lbVotacao"><h4><i>2/3. Como você avalia o tempo de espera do atendimento?</i></h4></label><br>
                                 <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-11">
                                     <button name="btn0pag2" id="btn0pag2" type="button" class="btn" value="1" style="background-color: #FFEBCD;" autofocus><img src="seta.png"></button>
