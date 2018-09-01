@@ -125,7 +125,7 @@ $date = date('Y-m-d');
                                         </div>
                                         <div class="form-group col-md-9">
 
-                                            <!-- --><a href="http://localhost/pesquisa/pesqAtendimento/relatorio.php">Limpar campos</a>
+                                            <!-- --><a href="http://localhost/pesqAtendimento/relatorio.php">Limpar campos</a>
                                         </div>
                                     </div>
                                 </div>
