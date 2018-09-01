@@ -50,18 +50,26 @@ $_SESSION["vendedor"] = selectComanda($_SESSION["comanda"]);
           <div class="well well-md" align="center" >
               <h3><b><i>PESQUISA DE SATISFAÇÃO DO CLIENTE</i></b></h3>
           </div>
-            <div class="panel panel-default" id="votacao">
+            <div class="panel panel-default" id="votacao" style="height:274px;">
                 <div class="panel-body">
                     <form class="form-inline" name="frmQuestao3" method="post" action="result.php">
                         <label name="lblComanda"><h4><b>N. da comanda:</b></h4></label><br>
                         <input type="text" class="form-control" name="comanda" value="<?php echo $_SESSION["comanda"] ?>" readonly="true"> <br><br>
-                        <hr>
-                        <label name="lblQuestao3" id="lbVotacao"><h4>3/3. Como você avalia a qualidade das refeições?</h4></label><br>
-                        <div id="botoes" onkeypress="tecla_pressionada(event)" >
-                            <button name="bnt1pag3" id="bnt1pag3" type="button" class="btn btn-danger" value="1" onclick="location.href= 'http://localhost/pesqAtendimento/result.php?questao3=1' "><b>Ruim!</b></button>
-                            <button name="btn2pag3" id="btn2pag3" type="button" class="btn btn-warning" value="2" onclick="location.href= 'http://localhost/pesqAtendimento/result.php?questao3=2' "><b>Bom!</b></button>
-                            <button name="btn3pag3" id="btn3pag3" type="button" class="btn btn-success" value="3" onclick="location.href= 'http://localhost/pesqAtendimento/result.php?questao3=3' "><b>Ótimo!</b></button>
+
+                        <div class="panel panel-default" id="votacao">
+                            <div class="panel-body" style="background-color: #FFEBCD; ">
+                                <label name="lblQuestao3" id="lbVotacao"><h4><i>3/3. Como você avalia a qualidade das refeições?</i></h4></label><br>
+                                <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-11">
+                                    <button name="btn0pag3" id="btn0pag3" type="button" class="btn" value="1" style="background-color: #FFEBCD;" autofocus><img src="seta.png"></button>
+                                    <button name="bnt1pag3" id="bnt1pag3" type="button" class="btn btn-danger" value="1" onclick="location.href= 'http://localhost/pesqAtendimento/result.php?questao3=1' "><b>Ruim!</b></button>
+                                    <button name="btn2pag3" id="btn2pag3" type="button" class="btn btn-warning" value="2" onclick="location.href= 'http://localhost/pesqAtendimento/result.php?questao3=2' "><b>Bom!</b></button>
+                                    <button name="btn3pag3" id="btn3pag3" type="button" class="btn btn-success" value="3" onclick="location.href= 'http://localhost/pesqAtendimento/result.php?questao3=3' "><b>Ótimo!</b></button>
+                                </div>
+                                <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-1">
+                                </div>
+                            </div>
                         </div>
+
                     </form>
                 </div>
             </div>

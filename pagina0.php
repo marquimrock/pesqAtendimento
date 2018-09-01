@@ -39,7 +39,7 @@ session_start();
             }
             function pesquisa() {
               <!-- width -> largura da janela, height -> altura da janela, top e lef -> definem a posição que a janela vai abrir
-              window.open('pagina0.php','pesquisa','width=850px, height=430px, left=300px, top=200px')
+              window.open('index.php','pesquisa','width=850px, height=475px, left=300px, top=200px')
               //-->
             }
         </script>
@@ -50,13 +50,14 @@ session_start();
           <div class="well well-md" align="center" >
               <h3><b><i>PESQUISA DE SATISFAÇÃO DO CLIENTE</i></b></h3>
           </div>
-            <div class="panel panel-default" id="votacao">
+            <div class="panel panel-default" id="votacao" style="height:274px;">
                 <div class="panel-body">
-                    <form id="frmIndex">
+                    <form id="frmIndex" class="form-inline" name="frmIndex" method="post" action="pagina1.php" onsubmit="return valida_form(this)">
                         <!-- <img src="logo.png" width="255" height="187"> --> <br>
-                        <a href="javascript:pesquisa()">
-                          <button type="button" class="btn btn-danger"><b><h4>Iniciar Pesquisa</h4></b></button>
-                        </a>
+                        <label name="lblComanda"><h4><b>Informe sua comanda:</b></h4></label><br>
+                        <input type="text" class="form-control" name="comanda" id="comanda" onkeyup="if (this.value.length >= 8) {
+                                    enableDiv();
+                                }"  maxlength="8" autofocus="true"><br>
                     </form>
                 </div>
             </div>

@@ -1,6 +1,3 @@
-<?php
-header("refresh: 5;index.php");
-?>
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
@@ -9,13 +6,23 @@ header("refresh: 5;index.php");
         <title>Pesquisa de Satisfação do Cliente</title>
         <link rel="stylesheet" href="assets/css/bootstrap.css"/>
         <link rel="stylesheet" href="assets/css/estilo.css"/>
+        <script>
+            function pesquisa() {
+              <!-- width -> largura da janela, height -> altura da janela, top e lef -> definem a posição que a janela vai abrir
+              window.open('pagina0.php','pesquisa','width=850px, height=475px, left=300px, top=200px')
+              //-->
+            }
+            setTimeout(function() {
+                window.location.href = "javascript:pesquisa()";
+            }, 5000);
+        </script>
     </head>
     <body>
         <div class="container-fluid" align="center"><br>
           <div class="panel panel-default" id="votacao">
               <div class="panel-body">
                   <img src="logo.png" width="255" height="187">
-                  <form id="frmQuestao1" class="form-inline" name="frmQuestao1" method="post" action="pagina2.php">
+                  <form id="frmQuestao1" class="form-inline">
                     <br>
                       <label name="lblComanda"><h2><b>Agradecemos a sua participação!</b></h2></label><br>
                       <label name="lblComanda"><h2><b>Volte Sempre!</b></h2></label><br>
