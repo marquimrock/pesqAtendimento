@@ -156,7 +156,7 @@ $date = date('Y-m-d');
                                     include 'pesquisa.php';
                                     include 'conexao.php';
                                     $sql = "SELECT * FROM pesquisa WHERE '1' = '1' ";
-                                    if (isset($_POST['vendedor'])) {                                        
+                                    if (isset($_POST['vendedor'])) {
                                         if ($_POST['vendedor'] !== 'null') {
                                             $vendedor = $_POST['vendedor'];
                                             $sql = $sql . " AND vendedor = '$vendedor' ";
@@ -174,8 +174,22 @@ $date = date('Y-m-d');
                                             $sql = $sql . " AND questao3 = '$questao3' ";
                                         }
 
-                                        $dataInicial = implode("-",array_reverse(explode("/",$_POST['dataInicial'])));
-                                        $dataFinal = implode("-",array_reverse(explode("/",$_POST['dataFinal'])));
+                                        $dtInicial;
+                                        if(empty($_POST['dataInicial'])){
+                                            $dtInicial = "";
+                                        } else {
+                                            $dtInicial = $_POST['dataInicial'];
+                                        }
+
+                                        $dtFinal;
+                                        if(empty($_POST['dataFinal'])){
+                                            $dtFinal = "";
+                                        } else {
+                                            $dtInicial = $_POST['dataFinal'];
+                                        }
+
+                                        $dataInicial = implode("-",array_reverse(explode("/",$dtInicial)));
+                                        $dataFinal = implode("-",array_reverse(explode("/",$dtInicial)));
                                         if(empty($dataFinal)){
                                             $dataFinal = date('Y-m-d');
                                             if (!empty($dataInicial) || !empty($dataFinal)) {
