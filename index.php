@@ -31,16 +31,16 @@ session_start();
                     return false;
                 } else {
                     document.frmIndex.submit();
-            }
+                }
             }
             function enableDiv() {
-
                 document.getElementById("frmIndex").submit();
             }
             function pesquisa() {
               <!-- width -> largura da janela, height -> altura da janela, top e lef -> definem a posição que a janela vai abrir
-              window.open('pagina0.php','pesquisa','width=850px, height=430px, left=300px, top=200px')
-              //-->
+              window.open('pagina0.php','pesquisa','toolbar=yes, scrollbars=yes, resizable=yes, width=4000, height=4000, left=300, top=200');
+
+              -->
             }
         </script>
     </head>
@@ -54,9 +54,9 @@ session_start();
                 <div class="panel-body">
                     <form id="frmIndex">
                         <!-- <img src="logo.png" width="255" height="187"> --> <br>
-                        <a href="javascript:pesquisa()">
-                          <button type="button" class="btn btn-danger"><b><h4>Iniciar Pesquisa</h4></b></button>
-                        </a>
+                        <!-- <a href="javascript:pesquisa()"> -->
+                          <button type="button" class="btn btn-danger" onclick="pesquisa()"><b><h4>Iniciar Pesquisa</h4></b></button>
+                        <!-- </a> -->
                     </form>
                 </div>
             </div>
