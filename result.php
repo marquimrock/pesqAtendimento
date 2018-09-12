@@ -19,7 +19,7 @@ switch ($questao3) {
 include './conexaoFirebird.php';
     date_default_timezone_set('America/Sao_Paulo');
     $date = date('Y-m-d');
-    $time = date('H:i');    
+    $time = date('H:i');
 
 $pesquisa = new pesquisa();
 $pesquisa->setComanda($_SESSION["comanda"]);
@@ -32,6 +32,3 @@ $pesquisa->setTime($time);
 
 
 $pesquisa->salvar($pesquisa);
-
- 
-

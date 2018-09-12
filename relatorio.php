@@ -1,5 +1,9 @@
 <?php
-include './conexaoFirebird.php';
+include 'conexaoFirebird.php';
+include 'contagem.php';
+
+$contagem = new contagem();
+
 $query = ibase_query($dbh, $sql);
 $query2 = ibase_query($dbh, $sql2);
 
@@ -7,6 +11,7 @@ date_default_timezone_set('America/Sao_Paulo');
 $dateBr = date('d-m-Y');
 $date = date('Y-m-d');
 ?>
+
 <html  lang="pt-BR">
     <head>
         <meta charset="UTF-8">
@@ -40,6 +45,7 @@ $date = date('Y-m-d');
                     monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
                 });
             });
+
         </script>
     </head>
     <body>
@@ -121,12 +127,120 @@ $date = date('Y-m-d');
                                             <!-- PESQUISAR -->
                                             <button type="submit" class="btn btn-default" value="pesquisar" id="btnPesquisa">
                                               <b><i>Pesquisar</i></b>
-                                            </button>
+                                            </button><br><br>
+                                            <a href="http://localhost/pesqAtendimento/relatorio.php"><u>Limpar campos</u></a>
                                         </div>
-                                        <div class="form-group col-md-9">
 
-                                            <!-- --><a href="http://localhost/pesqAtendimento/relatorio.php">Limpar campos</a>
+                                        <?php
+                                            //include 'contagem.php';
+                                            //include 'pesquisa.php';
+                                            include 'conexao.php';
+                                            $sql = "SELECT * FROM pesquisa WHERE '1' = '1' ";
+                                            if (isset($_POST['vendedor'])) {
+                                                if ($_POST['vendedor'] !== 'null') {
+                                                    $vendedor = $_POST['vendedor'];
+                                                    $sql = $sql . " AND vendedor = '$vendedor' ";
+                                                }
+                                                if ($_POST['questao1'] !== 'null') {
+                                                    $questao1 = $_POST['questao1'];
+                                                    $sql = $sql . " AND questao1 = '$questao1' ";
+                                                }
+                                                if ($_POST['questao2'] !== 'null') {
+                                                    $questao2 = $_POST['questao2'];
+                                                    $sql = $sql . " AND questao2 = '$questao2' ";
+                                                }
+                                                if ($_POST['questao3'] !== 'null') {
+                                                    $questao3 = $_POST['questao3'];
+                                                    $sql = $sql . " AND questao3 = '$questao3' ";
+                                                }
+
+                                                $dtInicial;
+                                                if(empty($_POST['dataInicial'])){
+                                                    $dtInicial = "";
+                                                } else {
+                                                    $dtInicial = $_POST['dataInicial'];
+                                                }
+
+                                                $dtFinal;
+                                                if(empty($_POST['dataFinal'])){
+                                                    $dtFinal = "";
+                                                } else {
+                                                    $dtInicial = $_POST['dataFinal'];
+                                                }
+
+                                                $dataInicial = implode("-",array_reverse(explode("/",$dtInicial)));
+                                                $dataFinal = implode("-",array_reverse(explode("/",$dtInicial)));
+                                                if(empty($dataFinal)){
+                                                    $dataFinal = date('Y-m-d');
+                                                    if (!empty($dataInicial) || !empty($dataFinal)) {
+                                                        $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
+                                                    }
+                                                } else {
+                                                    if (!empty($dataInicial) || !empty($dataFinal)) {
+                                                        $sql = $sql . " AND data between '$dataInicial' AND '$dataFinal' order by data ";
+                                                    }
+                                                }
+
+                                                $ruimQst1 = 0;
+                                                $bomQst1 = 0;
+                                                $otimoQst1 = 0;
+
+                                                $contagem = new contagem();
+                                                $result = $conn->query($sql);
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each
+                                                    while ($row = $result->fetch_assoc()) {
+                                                        switch ($row["questao1"]) {
+                                                          case 'ruim':
+                                                            $ruimQst1++;
+                                                            $contagem->setLbRuimQst1($ruimQst1);
+                                                            break;
+                                                          case 'bom':
+                                                            $bomQst1++;
+                                                            $contagem->setLbBomQst1($bomQst1);
+                                                            break;
+                                                          case 'otimo':
+                                                            $otimoQst1++;
+                                                            $contagem->setLbOtimoQst1($otimoQst1);
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ?>
+
+                                        <?php
+                                        /*
+                                          $contagem->getLbRuimQst1();
+                                          $contagem->getLbBomQst1();
+                                          $contagem->getLbOtimoQst1();
+                                          */
+                                        ?>
+
+                                        <div class="form-group col-md-2">
+                                          <form class="form-horizontal">
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFCCFF; border-color: #FFCCFF; height:30px; width:10%;">10%</label>
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFFF00; border-color: #FFFF00; height:30px; width:30%;">30%</label>
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #7CFC00; border-color: #7CFC00; height:30px; width:60%;">60%</label>
+                                          </form>
                                         </div>
+
+                                        <div class="form-group col-md-2">
+                                          <form class="form-horizontal">
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFCCFF; border-color: #FFCCFF; height:30px; width:10%;">10%</label>
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFFF00; border-color: #FFFF00; height:30px; width:30%;">30%</label>
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #7CFC00; border-color: #7CFC00; height:30px; width:60%;">60%</label>
+                                          </form>
+                                        </div>
+
+                                        <div class="form-group col-md-2">
+                                          <form class="form-horizontal">
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFCCFF; border-color: #FFCCFF; height:30px; width:10%;">10%</label>
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFFF00; border-color: #FFFF00; height:30px; width:30%;">30%</label>
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #7CFC00; border-color: #7CFC00; height:30px; width:60%;">60%</label>
+                                          </form>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -211,13 +325,14 @@ $date = date('Y-m-d');
                                                 echo '<td align="center">' . $row["questao1"] . '</td>';
                                                 echo '<td align="center">' . $row["questao2"] . '</td>';
                                                 echo '<td align="center">' . $row["questao3"] . '</td>';
+
                                                 $data = implode("/",array_reverse(explode("-",$row["data"])));
                                                 echo '<td align="center">' . $data . '</td>';
                                                 echo '<td align="center">' . $row["hora"] . '</td>';
                                                 echo '</tr>';
                                             }
                                         } else {
-                                            echo "0 results";
+                                            echo "Nenhum resultado encontrado!";
                                         }
                                     }
                                     $conn->close();

@@ -53,3 +53,29 @@ button#btnPesquisa {
   color: #FFE4E1;
   border-color: #FFCC99;
 }
+
+
+
+#principal{
+  width:500px;
+  height:60px;
+  margin-left:10px;
+  font-family:Verdana, Helvetica, sans-serif;
+  font-size:14px;
+}
+#barras{
+  width:428px;
+  height:30px;
+  float:left;
+  margin: 2px 0;
+  border-color: #FF0000;
+}
+.barra1, .barra2, .barra3, .barra4{
+  color:#FFF;
+  padding-left:10px;
+  height:30px;
+  line-height:30px;
+}
+.barra{ background-color: #FF0000; }
+.barra2{ background-color: #0000FF; }
+.barra3{ background-color: #FF6600; }

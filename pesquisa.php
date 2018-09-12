@@ -123,17 +123,16 @@ class pesquisa {
         mysqli_close($conn);
     }
 
-}
+    function filtraPesquisa($pesquisa) {
+        include './conexao.php';
 
-function filtraPesquisa($pesquisa) {
-    include './conexao.php';
-
-    $sql = "SELECT * FROM pesquisa ";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        // output data of each
-        while ($row = $result->fetch_assoc()) {
-            echo $row["comanda"];
+        $sql = "SELECT * FROM pesquisa ";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each
+            while ($row = $result->fetch_assoc()) {
+                echo $row["comanda"];
+            }
         }
     }
 }
