@@ -184,6 +184,12 @@ $date = date('Y-m-d');
                                                 $ruimQst1 = 0;
                                                 $bomQst1 = 0;
                                                 $otimoQst1 = 0;
+                                                $ruimQst2 = 0;
+                                                $bomQst2 = 0;
+                                                $otimoQst2 = 0;
+                                                $ruimQst3 = 0;
+                                                $bomQst3 = 0;
+                                                $otimoQst3 = 0;
 
                                                 $contagem = new contagem();
                                                 $result = $conn->query($sql);
@@ -204,43 +210,114 @@ $date = date('Y-m-d');
                                                             $contagem->setLbOtimoQst1($otimoQst1);
                                                             break;
                                                         }
+
+                                                        switch ($row["questao2"]) {
+                                                          case 'ruim':
+                                                            $ruimQst2++;
+                                                            $contagem->setLbRuimQst2($ruimQst2);
+                                                            break;
+                                                          case 'bom':
+                                                            $bomQst2++;
+                                                            $contagem->setLbBomQst2($bomQst2);
+                                                            break;
+                                                          case 'otimo':
+                                                            $otimoQst2++;
+                                                            $contagem->setLbOtimoQst2($otimoQst2);
+                                                            break;
+                                                        }
+
+                                                        switch ($row["questao3"]) {
+                                                          case 'ruim':
+                                                            $ruimQst3++;
+                                                            $contagem->setLbRuimQst3($ruimQst3);
+                                                            break;
+                                                          case 'bom':
+                                                            $bomQst3++;
+                                                            $contagem->setLbBomQst3($bomQst3);
+                                                            break;
+                                                          case 'otimo':
+                                                            $otimoQst3++;
+                                                            $contagem->setLbOtimoQst3($otimoQst3);
+                                                            break;
+                                                        }
                                                     }
+                                                    $ruim1 = $contagem->getLbRuimQst1();
+                                                    $bom1 = $contagem->getLbBomQst1();
+                                                    $otimo1 = $contagem->getLbOtimoQst1();
+
+                                                    $contagem->setPercRuim1(number_format(($ruim1 * 100)/($ruim1 + $bom1 + $otimo1)),2);
+                                                    $contagem->setPercBom1(number_format(($bom1 * 100)/($ruim1 + $bom1 + $otimo1)),2);
+                                                    $contagem->setPercOtimo1(number_format(($otimo1 * 100)/($ruim1 + $bom1 + $otimo1)),2);
+
+                                                    $ruim2 = $contagem->getLbRuimQst2();
+                                                    $bom2 = $contagem->getLbBomQst2();
+                                                    $otimo2 = $contagem->getLbOtimoQst2();
+
+                                                    $contagem->setPercRuim2(number_format(($ruim2 * 100)/($ruim2 + $bom2 + $otimo2)),2);
+                                                    $contagem->setPercBom2(number_format(($bom2 * 100)/($ruim2 + $bom2 + $otimo2)),2);
+                                                    $contagem->setPercOtimo2(number_format(($otimo2 * 100)/($ruim2 + $bom2 + $otimo2)),2);
+
+                                                    $ruim3 = $contagem->getLbRuimQst3();
+                                                    $bom3 = $contagem->getLbBomQst3();
+                                                    $otimo3 = $contagem->getLbOtimoQst3();
+
+                                                    $contagem->setPercRuim3(number_format(($ruim3 * 100)/($ruim3 + $bom3 + $otimo3)),2);
+                                                    $contagem->setPercBom3(number_format(($bom3 * 100)/($ruim3 + $bom3 + $otimo3)),2);
+                                                    $contagem->setPercOtimo3(number_format(($otimo3 * 100)/($ruim3 + $bom3 + $otimo3)),2);
                                                 }
                                             }
                                         ?>
-
-                                        <?php
-                                        /*
-                                          $contagem->getLbRuimQst1();
-                                          $contagem->getLbBomQst1();
-                                          $contagem->getLbOtimoQst1();
-                                          */
-                                        ?>
-
                                         <div class="form-group col-md-2">
                                           <form class="form-horizontal">
-                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFCCFF; border-color: #FFCCFF; height:30px; width:10%;">10%</label>
-                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFFF00; border-color: #FFFF00; height:30px; width:30%;">30%</label>
-                                            <label for="disabledInput" class="form-control control-label" style="background-color: #7CFC00; border-color: #7CFC00; height:30px; width:60%;">60%</label>
+                                            Ruim:
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFCCFF; border-color: #FFCCFF; height:30px; width:<?php echo $contagem->getPercRuim1().'%' ?>;">
+                                              <?php echo $contagem->getPercRuim1().'%' ?>
+                                            </label>
+                                            Bom:
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFFF00; border-color: #FFFF00; height:30px; width:<?php echo $contagem->getPercBom1().'%' ?>;">
+                                              <?php echo $contagem->getPercBom1().'%' ?>
+                                            </label>
+                                            Otimo:
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #7CFC00; border-color: #7CFC00; height:30px; width:<?php echo $contagem->getPercOtimo1().'%' ?>;">
+                                              <?php echo $contagem->getPercOtimo1().'%' ?>
+                                            </label>
                                           </form>
                                         </div>
 
                                         <div class="form-group col-md-2">
                                           <form class="form-horizontal">
-                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFCCFF; border-color: #FFCCFF; height:30px; width:10%;">10%</label>
-                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFFF00; border-color: #FFFF00; height:30px; width:30%;">30%</label>
-                                            <label for="disabledInput" class="form-control control-label" style="background-color: #7CFC00; border-color: #7CFC00; height:30px; width:60%;">60%</label>
+                                            Ruim:
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFCCFF; border-color: #FFCCFF; height:30px; width:<?php echo $contagem->getPercRuim2().'%' ?>;">
+                                              <?php echo $contagem->getPercRuim2().'%' ?>
+                                            </label>
+                                            Bom:
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFFF00; border-color: #FFFF00; height:30px; width:<?php echo $contagem->getPercBom2().'%' ?>;">
+                                              <?php echo $contagem->getPercBom2().'%' ?>
+                                            </label>
+                                            Otimo:
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #7CFC00; border-color: #7CFC00; height:30px; width:<?php echo $contagem->getPercOtimo2().'%' ?>;">
+                                              <?php echo $contagem->getPercOtimo2().'%' ?>
+                                            </label>
                                           </form>
                                         </div>
 
                                         <div class="form-group col-md-2">
                                           <form class="form-horizontal">
-                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFCCFF; border-color: #FFCCFF; height:30px; width:10%;">10%</label>
-                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFFF00; border-color: #FFFF00; height:30px; width:30%;">30%</label>
-                                            <label for="disabledInput" class="form-control control-label" style="background-color: #7CFC00; border-color: #7CFC00; height:30px; width:60%;">60%</label>
+                                            Ruim:
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFCCFF; border-color: #FFCCFF; height:30px; width:<?php echo $contagem->getPercRuim3().'%' ?>;">
+                                              <?php echo $contagem->getPercRuim3().'%' ?>
+                                            </label>
+                                            Bom:
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #FFFF00; border-color: #FFFF00; height:30px; width:<?php echo $contagem->getPercBom3().'%' ?>;">
+                                              <?php echo $contagem->getPercBom3().'%' ?>
+                                            </label>
+                                            Otimo:
+                                            <label for="disabledInput" class="form-control control-label" style="background-color: #7CFC00; border-color: #7CFC00; height:30px; width:<?php echo $contagem->getPercOtimo3().'%' ?>;">
+                                              <?php echo $contagem->getPercOtimo3().'%' ?>
+                                            </label>
                                           </form>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
