@@ -55,7 +55,8 @@ session_start();
                     <form id="frmIndex">
                         <!-- <img src="logo.png" width="255" height="187"> --> <br>
                         <!-- <a href="javascript:pesquisa()"> -->
-                          <button type="button" class="btn btn-danger" onclick="pesquisa()"><b><h4>Iniciar Pesquisa</h4></b></button>
+                          <!--<button type="button" class="btn btn-danger" onclick="pesquisa()"><b><h4>Iniciar Pesquisa</h4></b></button>-->
+                          <button type="button" class="btn btn-danger" onclick="location.href= 'http://192.168.0.104/pesqAtendimento/pagina0.php' "><b><h4>Iniciar Pesquisa</h4></b></button>
                         <!-- </a> -->
                     </form>
                 </div>

@@ -31,16 +31,10 @@ session_start();
                     return false;
                 } else {
                     document.frmIndex.submit();
-            }
+                  }
             }
             function enableDiv() {
-
                 document.getElementById("frmIndex").submit();
-            }
-            function pesquisa() {
-              <!-- width -> largura da janela, height -> altura da janela, top e lef -> definem a posição que a janela vai abrir
-              window.open('index.php','pesquisa','width=850px, height=475px, left=300px, top=200px')
-              //-->
             }
         </script>
     </head>

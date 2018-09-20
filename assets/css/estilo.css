@@ -4,21 +4,21 @@ body {
 
 div.well {
   background-color: #FF6347;
-  border-color: #FF4500;
+  border-color: #FFCFC9;
   text-shadow: 1px 1px 1px #000000;
   color: #FFE4E1;
 }
 
 select.form-control {
-  border-color: #FFCC99;
+  border-color: #FFCFC9;
 }
 
 input.form-control {
-  border-color: #FFCC99;
+  border-color: #FFCFC9;
 }
 
 div.panel#votacao {
-  border-color: #FFCC00;
+  border-color: #FFCFC9;
   background-color: #FFFFF0;
   text-shadow: 1px 1px 1px #000000;
   color: #8B0000;
@@ -30,13 +30,13 @@ label#lbVotacao {
 }
 
 div.panel#filtroRelatorio {
-  border-color: #FF4500;
+  border-color: #FFCFC9;
   background-color: #FFFFF0;
   color: #D2691E;
 }
 
 div.panel#relatorio {
-  border-color: #FF4500;
+  border-color: #FFCFC9;
   background-color: #FFFFF0;
   color: #D2691E;
 }

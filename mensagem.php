@@ -7,13 +7,14 @@
         <link rel="stylesheet" href="assets/css/bootstrap.css"/>
         <link rel="stylesheet" href="assets/css/estilo.css"/>
         <script>
+            /*
             function pesquisa() {
               <!-- width -> largura da janela, height -> altura da janela, top e lef -> definem a posição que a janela vai abrir
               window.open('pagina0.php','pesquisa','width=850px, height=475px, left=300px, top=200px')
               //-->
-            }
+            }*/
             setTimeout(function() {
-                window.location.href = "javascript:pesquisa()";
+                window.location.href = "http://192.168.0.104/pesqAtendimento/pagina0.php";
             }, 5000);
         </script>
     </head>
