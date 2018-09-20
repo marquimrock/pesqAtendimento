@@ -33,13 +33,13 @@ $_SESSION["vendedor"] = selectComanda($_SESSION["comanda"]);
             function tecla_pressionada(x) {
                 var tecla = x.which;
                 if (tecla == 49) {
-                    window.location.href = "http://localhost/pesqAtendimento/result.php?questao3=1";
+                    window.location.href = "http://192.168.0.104/pesqAtendimento/result.php?questao3=1";
                 }
                 if (tecla == 50) {
-                    window.location.href = "http://localhost/pesqAtendimento/result.php?questao3=2";
+                    window.location.href = "http://192.168.0.104/pesqAtendimento/result.php?questao3=2";
                 }
                 if (tecla == 51) {
-                    window.location.href = "http://localhost/pesqAtendimento/result.php?questao3=3";
+                    window.location.href = "http://192.168.0.104/pesqAtendimento/result.php?questao3=3";
                 }
             }
         </script>
@@ -61,9 +61,9 @@ $_SESSION["vendedor"] = selectComanda($_SESSION["comanda"]);
                                 <label name="lblQuestao3" id="lbVotacao"><h4><i>3/3. Como você avalia a qualidade das refeições?</i></h4></label><br>
                                 <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-11">
                                     <button name="btn0pag3" id="btn0pag3" type="button" class="btn" value="1" style="background-color: #FFEBCD;" autofocus><img src="seta.png"></button>
-                                    <button name="bnt1pag3" id="bnt1pag3" type="button" class="btn btn-danger" value="1" onclick="location.href= 'http://localhost/pesqAtendimento/result.php?questao3=1' "><b>Ruim!</b></button>
-                                    <button name="btn2pag3" id="btn2pag3" type="button" class="btn btn-warning" value="2" onclick="location.href= 'http://localhost/pesqAtendimento/result.php?questao3=2' "><b>Bom!</b></button>
-                                    <button name="btn3pag3" id="btn3pag3" type="button" class="btn btn-success" value="3" onclick="location.href= 'http://localhost/pesqAtendimento/result.php?questao3=3' "><b>Ótimo!</b></button>
+                                    <button name="bnt1pag3" id="bnt1pag3" type="button" class="btn btn-danger" value="1" onclick="location.href= 'http://192.168.0.104/pesqAtendimento/result.php?questao3=1' "><b>Ruim!</b></button>
+                                    <button name="btn2pag3" id="btn2pag3" type="button" class="btn btn-warning" value="2" onclick="location.href= 'http://192.168.0.104/pesqAtendimento/result.php?questao3=2' "><b>Bom!</b></button>
+                                    <button name="btn3pag3" id="btn3pag3" type="button" class="btn btn-success" value="3" onclick="location.href= 'http://192.168.0.104/pesqAtendimento/result.php?questao3=3' "><b>Ótimo!</b></button>
                                 </div>
                                 <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-1">
                                 </div>
