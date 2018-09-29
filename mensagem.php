@@ -20,13 +20,15 @@
     </head>
     <body>
         <div class="container-fluid" align="center"><br>
-          <div class="panel panel-default" id="votacao">
+          <div class="well well-sm" style="height: 80px;">
+              <h3><b><i>PESQUISA DE SATISFAÇÃO DO CLIENTE</i></b></h3>
+          </div>
+          <div class="panel panel-default" id="votacao" style="height:335px;">
               <div class="panel-body">
                   <img src="logo.png" width="255" height="187">
                   <form id="frmQuestao1" class="form-inline">
                     <br>
-                      <label name="lblComanda"><h2><b>Agradecemos a sua participação!</b></h2></label><br>
-                      <label name="lblComanda"><h2><b>Volte Sempre!</b></h2></label><br>
+                    <label name="lblComanda"><h2><b>Obrigado e volte sempre!</b></h2></label><br>
                   </form>
                 </div>
             </div>

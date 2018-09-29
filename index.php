@@ -46,17 +46,21 @@ session_start();
     </head>
     <body>
         <div class="container-fluid" align="center"><br>
-          <img src="logo.png" width="150" height="97" align="left">
-          <div class="well well-md" align="center" >
+          <div class="well well-sm" style="height: 80px;">
               <h3><b><i>PESQUISA DE SATISFAÇÃO DO CLIENTE</i></b></h3>
           </div>
-            <div class="panel panel-default" id="votacao">
+            <div class="panel panel-default" id="votacao" style="height:335px;">
                 <div class="panel-body">
                     <form id="frmIndex">
-                        <!-- <img src="logo.png" width="255" height="187"> --> <br>
-                        <!-- <a href="javascript:pesquisa()"> -->
-                          <!--<button type="button" class="btn btn-danger" onclick="pesquisa()"><b><h4>Iniciar Pesquisa</h4></b></button>-->
-                          <button type="button" class="btn btn-danger" onclick="location.href= 'http://192.168.0.104/pesqAtendimento/pagina0.php' "><b><h4>Iniciar Pesquisa</h4></b></button>
+                          <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-0" align="right">
+                              <img src="logo.png" width="150" height="97" align="left">
+                          </div>
+                          <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-6" align="right"><br><br>
+                              <button type="button" class="btn btn-danger" onclick="location.href= 'http://192.168.0.104/pesqAtendimento/pagina0.php' "><b><h3>Iniciar Pesquisa</h3></b></button>
+                          </div>
+                          <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-4" align="right">
+
+                          </div>
                         <!-- </a> -->
                     </form>
                 </div>
