@@ -14,7 +14,7 @@
               //-->
             }*/
             setTimeout(function() {
-                window.location.href = "http://192.168.0.104/pesqAtendimento/pagina0.php";
+                window.location.href = "pagina0.php";
             }, 5000);
         </script>
     </head>

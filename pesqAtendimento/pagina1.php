@@ -20,13 +20,13 @@ $_SESSION["comanda"] = $_POST['comanda'];
             function tecla_pressionada(x) {
                 var tecla = x.which;
                 if (tecla == 49) {
-                     window.location.href = "http://192.168.0.104/pesqAtendimento/pagina2.php?questao1=1";
+                     window.location.href = "pagina2.php?questao1=1";
                 }
                 if (tecla == 50) {
-                    window.location.href = "http://192.168.0.104/pesqAtendimento/pagina2.php?questao1=2";
+                    window.location.href = "pagina2.php?questao1=2";
                 }
                 if (tecla == 51) {
-                    window.location.href = "http://192.168.0.104/pesqAtendimento/pagina2.php?questao1=3";
+                    window.location.href = "pagina2.php?questao1=3";
                 }
             }
         </script>
@@ -52,17 +52,17 @@ $_SESSION["comanda"] = $_POST['comanda'];
                                   <label name="lblQuestao1" id="lbVotacao"><h3><i>1/3. Como você avalia o ambiente de atendimento?</i></h3></label>
                                   <br><br>
                                   <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-5" align="right">
-                                      <button name="btn1pag1" id="btn1pag1" type="button" class="btn btn-danger" value="1" style="width: 120px; height: 54px;" onclick="location.href= 'http://192.168.0.104/pesqAtendimento/pagina2.php?questao1=1' ">
+                                      <button name="btn1pag1" id="btn1pag1" type="button" class="btn btn-danger" value="1" style="width: 120px; height: 54px;" onclick="location.href= 'pagina2.php?questao1=1' ">
                                         <h4><b>Ruim!</b></h4>
                                       </button>
                                   </div>
                                   <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-2">
-                                      <button name="btn2pag1" id="btn2pag1" type="button" class="btn btn-warning" value="2" style="width: 120px; height: 54px;" onclick="location.href= 'http://192.168.0.104/pesqAtendimento/pagina2.php?questao1=2' ">
+                                      <button name="btn2pag1" id="btn2pag1" type="button" class="btn btn-warning" value="2" style="width: 120px; height: 54px;" onclick="location.href= 'pagina2.php?questao1=2' ">
                                         <h4><b>Bom!</b></h4>
                                       </button>
                                   </div>
                                   <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-5" align="left">
-                                      <button name="btn3pag1" id="btn3pag1" type="button" class="btn btn-success" value="3" style="width: 120px; height: 54px;" onclick="location.href= 'http://192.168.0.104/pesqAtendimento/pagina2.php?questao1=3' ">
+                                      <button name="btn3pag1" id="btn3pag1" type="button" class="btn btn-success" value="3" style="width: 120px; height: 54px;" onclick="location.href= 'pagina2.php?questao1=3' ">
                                         <h4><b>Ótimo!</b></h4>
                                       </button>
                                   </div>

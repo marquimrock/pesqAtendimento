@@ -128,7 +128,7 @@ $date = date('Y-m-d');
                                             <button type="submit" class="btn btn-default" value="pesquisar" id="btnPesquisa">
                                               <b><i>Pesquisar</i></b>
                                             </button><br><br>
-                                            <a href="http://192.168.0.104/pesqAtendimento/relatorio.php"><u>Limpar campos</u></a>
+                                            <a href="/relatorio.php"><u>Limpar campos</u></a>
                                         </div>
 
                                         <?php

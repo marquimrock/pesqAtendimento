@@ -81,7 +81,7 @@ class pesquisa {
     }
 
     public function exibir() {
-        include './conexao.php';
+        include 'conexao.php';
         $sql = "SELECT * FROM pesquisa ";
         /*
           . " WHERE "
@@ -124,7 +124,7 @@ class pesquisa {
     }
 
     function filtraPesquisa($pesquisa) {
-        include './conexao.php';
+        include 'conexao.php';
 
         $sql = "SELECT * FROM pesquisa ";
         $result = $conn->query($sql);

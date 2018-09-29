@@ -45,6 +45,7 @@ session_start();
         </script>
     </head>
     <body>
+
         <div class="container-fluid" align="center"><br>
           <div class="well well-sm" style="height: 80px;">
               <h3><b><i>PESQUISA DE SATISFAÇÃO DO CLIENTE</i></b></h3>
@@ -56,7 +57,7 @@ session_start();
                               <img src="logo.png" width="150" height="97" align="left">
                           </div>
                           <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-6" align="right"><br><br>
-                              <button type="button" class="btn btn-danger" onclick="location.href= 'http://192.168.0.104/pesqAtendimento/pagina0.php' "><b><h3>Iniciar Pesquisa</h3></b></button>
+                              <button type="button" class="btn btn-danger" onclick="location.href= 'pagina0.php' "><b><h3>Iniciar Pesquisa</h3></b></button>
                           </div>
                           <div id="botoes" onkeypress="tecla_pressionada(event)" class="form-group col-md-4" align="right">
 
